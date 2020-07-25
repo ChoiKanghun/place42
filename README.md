@@ -58,8 +58,7 @@ https://github.com/crongro/front-end-curriculum
 
 
 
-왜 프레임워크를 쓰는지 ++
-
+왜 프레임워크를 쓰는지
 
 
 <br>
@@ -68,7 +67,7 @@ https://github.com/crongro/front-end-curriculum
 
 <br>
 
-## 첫 Framework
+## 첫 Framework, React
 
 
 
@@ -79,7 +78,9 @@ https://github.com/crongro/front-end-curriculum
 자바스크립트 프레임워크에는 여러 가지 종류가 있는데, 그중에서도 React JS 를 공부하기로 했다. 
 
 
+## How to use React
 
+## What is SPA
 
 
 나는 바닐라 스크립트밖에 할줄 모른다.
