@@ -22,13 +22,13 @@ https://github.com/crongro/front-end-curriculum
 
 
 
-![1](C:\Users\rkdgn\OneDrive\Desktop\Duck_feeds_us_private-master\1.png)
+![1](https://github.com/ChoiKanghun/ChoiKanghun_TIL/blob/master/img/0726_1.png?raw=true)
 
-![2](C:\Users\rkdgn\OneDrive\Desktop\Duck_feeds_us_private-master\2.png)
+![2](https://github.com/ChoiKanghun/ChoiKanghun_TIL/blob/master/img/0726_2.png?raw=true)
 
 
 
-![3](C:\Users\rkdgn\OneDrive\Desktop\Duck_feeds_us_private-master\3.png)
+![3](https://github.com/ChoiKanghun/ChoiKanghun_TIL/blob/master/img/0726_3.png?raw=true)
 
 
 
@@ -42,7 +42,7 @@ https://github.com/crongro/front-end-curriculum
 
 <br>
 
-![4](C:\Users\rkdgn\OneDrive\Desktop\Duck_feeds_us_private-master\4.png)
+![4](https://github.com/ChoiKanghun/ChoiKanghun_TIL/blob/master/img/0726_4.png?raw=true)
 
 <br>
 
