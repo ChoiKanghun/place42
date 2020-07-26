@@ -174,12 +174,6 @@ $.ajax({
 
 
 
-왜 React 인가
-
-
-
-<br>
-
 ## 첫 Framework, React
 
 
@@ -188,21 +182,120 @@ $.ajax({
 
 <br>
 
+
+
 자바스크립트 프레임워크에는 여러 가지 종류가 있는데, 그중에서도 React JS 를 공부하기로 했다. 
 
 
+
+<br>
+
+
+
+## 왜 React 인가
+
+![img](https://miro.medium.com/max/2000/1*fh5VNwJ0CfzV5sXf0o5_iA.png)
+
+
+
+<br>
+
+
+
+![img2](https://media.vlpt.us/images/wooder2050/post/56dfe437-721f-44b8-924e-2b949653ba4f/front_end_frameworks_section_overview.png)
+
+
+
+<br>
+
+
+
+일단 첫 번째 사진의 그래프만 봐도 대세는 REACT이다. vue가 반짝 2018년에 치고 올라왔지만, react에 의해 다시 역전당했다.  
+
+또, 두 번째 사진을 보면 REACT가 현재 가장 사용률이 높을 뿐더러 제품 만족도(?) 또한 가장 높다. 
+
+이렇게 리액트가 인기 있는 이유에는 여러가지가 있다. 하나는 단순성이다. MVC 중에서도 View에 집중한 프레임워크이기 때문에, 처음 배우는 사람도 러닝커브가 상대적으로 낮다. Angular 같은 경우에는 MVC 모두를 다루기 때문에 해당 개념에 대해 익숙하지 않은 사람은 배우기조차 힘든 것이 사실이다. 이와 관련해 React가 MVC 전체를 관리하는 것이 아니라서 React를 두고 프레임워크가 아닌 라이브러리라고 해야 한다는 글을 많이 접했다. 
+
+
+
+<br>
+
+
+
+### 리액트 네이티브(React Native) + SPA, CSR
+
+  
+
+React-Native를 이용하면 동일한 디자인을 사용하여 풍부한 모바일 UI 라이브러리를 활용할 수 있다. 일반 iOS 및 Android 앱과 거의 동일한 UI 빌딩 블록을 사용한다. 심지어 Objective-C나 Java, Swift로 작성된 구성 요소를 허용한다.
+
+
+
+<br>
+
+
+
+SPA(Single Page Application)와 CSR(Client Side Rendering) 또한 리액트의 주요한 장점이라고 할 수 있다. CSR과 대조되는 개념이 기존에 사용하던 방식인 SSR(Server Side Rendering)이다. SSR을 사용하는 경우 변화가 있을 때마다 페이지를 다시 로드해야 한다는 단점이 있었다. ajax라는 기술이 있지만 비동기적으로 불러올 이벤트가 많아질수록 시간도 오래거리고 유지보수 측면에서도 문제가 됐다. 
+
+
+
+<br>
+
+
+
+CSR(Client Side Rendering)은 이름에서 유추할 수 있듯이 클라이언트 단에서 렌더링하는 방식이다. 서버에서 데이터를 받아 이전과 비교해 수정된 데이터가 있는 화면만 새롭게 랜더링한다. 이를 통해 UX는 높이면서도 효율적인 코딩이 가능해졌다. 높여주면서 효율적으로 클라이언트 리소스를 사용하게 한다. 
+
+ 
+
+ 또 이전처럼 서버가 렌더링하는 대신 그냥 데이터를 보내주기만 하는 경우 안드로이드나 ios 등 모바일 플랫폼이 서버를 공유할 수 있게 E된다는 장점이 있다. 
+
+<br>
+
+
+
+## 가상 DOM
+
+
+
+React의 또 다른 장점은 가상 DOM을 사용한다는 것이다. Virtual DOM은 렌더링 해야 할 표현들을 메모리에 미리 저장해뒀다가 새로운 요청에 대해 다른 점을 찾고, 실제 DOM과 동기화하는 프로그래밍 개념이다. 
+
+
+
+<br>
+
+
+
+DOM 에 직접 접근해서 무언가를 변경하는 방식(기존의 방식)은 html, css, js가 리렌더링 되어야 하기 때문에 속도가 늦어진다. 이에 대해 리액트를 사용하는 경우 가상 DOM을 이용하면 실제로 DOM을 조작하는 횟수가 줄어들고, 속도는 빨라진다. 
+
+
+
+<br>
+
+
+
+이 과정에 대해 잘 정리한 동영상이 있다. 
+
+[video](https://youtu.be/BYbgopx44vo)
+
+
+
+<br>
+
+
+
+좀더 구체적인 과정은 이렇다. 
+
+`데이터가 변경되면 -> 이전의 가상 DOM과 비교해 변경된 부분을 찾는다. -> 변경된 부분만 실제 DOM에 적용한다. ` 
+
+이렇게 가상 DOM을 사용하면 사이트의 규모가 커질수록 얻을 수 있는 효율성과 속도 또한 더 커진다.
+
+
+
+<br>
+
+
+
+
 ## How to use React
-
-## What is SPA
-
-
-나는 바닐라 스크립트밖에 할줄 모른다.
-
-프레임워크 배우게 된 계기
-
-React JS 접하다.(why) -> React JS을 쓰기로 (what) -> React JS (how)
-
-React를 배우기 전에 사전에 배울 것들 - SPA 
 
 
 
@@ -218,3 +311,10 @@ https://velopert.com/2597
 
 https://dev.to/marluanguerrero/why-is-important-to-learn-vanilla-javascript-first-before-opting-for-a-framework-or-library--5ffg 
 
+https://www.playnexacro.com/#show:insight:893 
+
+https://codeburst.io/javascript-trends-in-2020-b194bebc5ef8 
+
+https://www.c-sharpcorner.com/article/what-and-why-reactjs/  
+https://railsware.com/blog/why-use-react/ 
+https://velog.io/@wooder2050/%EB%A6%AC%EC%95%A1%ED%8A%B8React%EB%8A%94-%EC%99%9C-%EC%93%B0%EB%8A%94-%EA%B1%B4%EB%8D%B0 
