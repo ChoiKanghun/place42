@@ -19,23 +19,34 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZN8-Pu-Toq">
+                                <rect key="frame" x="0.0" y="841.5" width="414" height="20.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="eTQ-hJ-5fo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7Bn-dk-IKW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eTQ-hJ-5fo" secondAttribute="trailing" id="E4l-sA-nPA"/>
                             <constraint firstItem="eTQ-hJ-5fo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="O8J-3h-rzi"/>
+                            <constraint firstItem="ZN8-Pu-Toq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b7Y-zm-Cic"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZN8-Pu-Toq" secondAttribute="trailing" id="ede-kT-qRy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZN8-Pu-Toq" secondAttribute="bottom" id="fwO-Pq-ePy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eTQ-hJ-5fo" secondAttribute="bottom" id="teo-nr-745"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="addressLabel" destination="ZN8-Pu-Toq" id="2sg-Uk-fSN"/>
                         <outlet property="mapView" destination="eTQ-hJ-5fo" id="ODR-c4-SWf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="138"/>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>
