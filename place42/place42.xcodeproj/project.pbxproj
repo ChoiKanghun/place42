@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,9 @@
 		7AB910C025E9143D00D2AE86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AB910BE25E9143D00D2AE86 /* Main.storyboard */; };
 		7AB910C225E9143D00D2AE86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB910C125E9143D00D2AE86 /* Assets.xcassets */; };
 		7AB910C525E9143D00D2AE86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AB910C325E9143D00D2AE86 /* LaunchScreen.storyboard */; };
+		7AD6478825ED1E7A009682DF /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6478725ED1E7A009682DF /* MusicPlayer.swift */; };
+		7AD6478A25EE1092009682DF /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6478925EE1092009682DF /* MusicPlayerViewController.swift */; };
+		7AD6478C25EE2B06009682DF /* all-night-long.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6478B25EE2B06009682DF /* all-night-long.mp3 */; };
 		E981E71BB184CFC601C46259 /* Pods_place42.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052EABF86406AE5C40A0F0F3 /* Pods_place42.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,9 @@
 		7AB910C125E9143D00D2AE86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AB910C425E9143D00D2AE86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AB910C625E9143D00D2AE86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AD6478725ED1E7A009682DF /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
+		7AD6478925EE1092009682DF /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
+		7AD6478B25EE2B06009682DF /* all-night-long.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "all-night-long.mp3"; sourceTree = "<group>"; };
 		9F2CF72CECA7F0FFDC61903F /* Pods-place42.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-place42.release.xcconfig"; path = "Target Support Files/Pods-place42/Pods-place42.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,7 +54,6 @@
 				39AD3AF2F900CDE7E877ABC5 /* Pods-place42.debug.xcconfig */,
 				9F2CF72CECA7F0FFDC61903F /* Pods-place42.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -77,7 +82,10 @@
 				7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */,
 				7AB910BC25E9143D00D2AE86 /* ViewController.swift */,
 				7AB910BE25E9143D00D2AE86 /* Main.storyboard */,
+				7AD6478725ED1E7A009682DF /* MusicPlayer.swift */,
+				7AD6478925EE1092009682DF /* MusicPlayerViewController.swift */,
 				7AB910C125E9143D00D2AE86 /* Assets.xcassets */,
+				7AD6478B25EE2B06009682DF /* all-night-long.mp3 */,
 				7AB910C325E9143D00D2AE86 /* LaunchScreen.storyboard */,
 				7AB910C625E9143D00D2AE86 /* Info.plist */,
 			);
@@ -153,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB910C525E9143D00D2AE86 /* LaunchScreen.storyboard in Resources */,
+				7AD6478C25EE2B06009682DF /* all-night-long.mp3 in Resources */,
 				7AB910C225E9143D00D2AE86 /* Assets.xcassets in Resources */,
 				7AB910C025E9143D00D2AE86 /* Main.storyboard in Resources */,
 			);
@@ -209,6 +218,8 @@
 			files = (
 				7AB910BD25E9143D00D2AE86 /* ViewController.swift in Sources */,
 				7AB910B925E9143D00D2AE86 /* AppDelegate.swift in Sources */,
+				7AD6478A25EE1092009682DF /* MusicPlayerViewController.swift in Sources */,
+				7AD6478825ED1E7A009682DF /* MusicPlayer.swift in Sources */,
 				7AB910BB25E9143D00D2AE86 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
