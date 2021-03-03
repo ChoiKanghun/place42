@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         }
         
         mapView.delegate = self
+        
 
     }
 

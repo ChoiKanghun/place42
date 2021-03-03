@@ -7,5 +7,11 @@ target 'place42' do
 
   # Pods for place42
   pod 'GoogleMaps', '~> 3.7.0'
-
-end
+  pod 'GooglePlaces'
+# add the Firebase pod for Google Analytics
+  pod 'Firebase/Analytics'
+# add pods for desired Firebase products
+# https://firebase.google.com/docs/ios/setup#available-pods
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  end
