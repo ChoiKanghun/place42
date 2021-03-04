@@ -25,7 +25,8 @@ class GetImageViewController: UIViewController {
         
         picker.delegate = self
         
-        let photoLibraryAlertAction = UIAlertAction(title: "사진 앨범", style: .default) { (action) in
+        let photoLibraryAlertAction = UIAlertAction(title: "사진 앨범", style: .default) {
+            (action) in
             self.openLibrary()
         }
         let cameraAlertAction = UIAlertAction(title: "카메라", style: .default) {(action) in
@@ -64,11 +65,17 @@ class GetImageViewController: UIViewController {
         
     }
     
-    func uploadImage(image: UIImage) {
-
+    func dateToString(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko")
+        formatter.dateFormat = "yyyy_MM_dd_HH_mm_ss_SSSS"
+        return (formatter.string(from: date))
+    }
+    
+    func uploadImage(image: UIImage) -> String {
         var data = Data()
         data = image.jpegData(compressionQuality: 0.8)!
-        let filePath = "kchoifilepathtest"
+        let filePath = "image" + dateToString(Date())
         let metaData = StorageMetadata()
         metaData.contentType = "image/png"
         storage.reference().child(filePath).putData(data, metadata: metaData) {
@@ -80,76 +87,8 @@ class GetImageViewController: UIViewController {
                 print("업로드 성공")
             }
         }
-        
-        
-        
-//       let storageRef = storage.reference()
-//
-//        // Local file you want to upload
-//        guard let localFile = URL(string: "file:///Users/choeganghun/Desktop/dd.png")
-//        else {
-//            print("Getting local file has been failed")
-//            return
-//        }
-//
-//        // Create the file metadata
-//        let metadata = StorageMetadata()
-//        metadata.contentType = "image/jpg"
-//
-//        // Upload file and metadata to the object 'images/mountains.jpg'
-//        let uploadTask = storageRef.putFile(from: localFile, metadata: metadata)
-//
-//        // Listen for state changes, errors, and completion of the upload.
-//        uploadTask.observe(.resume) { snapshot in
-//          // Upload resumed, also fires when the upload starts
-//        }
-//
-//        uploadTask.observe(.pause) { snapshot in
-//          // Upload paused
-//        }
-//
-//        uploadTask.observe(.progress) { snapshot in
-//          // Upload reported progress
-//          let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
-//            / Double(snapshot.progress!.totalUnitCount)
-//        }
-//
-//        uploadTask.observe(.success) { snapshot in
-//            print("upload success")
-//        }
-//
-//        uploadTask.observe(.failure) { snapshot in
-//            if let error = snapshot.error as NSError? {
-//            print("upload task failed")
-//            print(error)
-//            switch (StorageErrorCode(rawValue: error.code)!) {
-//            case .objectNotFound:
-//              // File doesn't exist
-//              break
-//            case .unauthorized:
-//              // User doesn't have permission to access file
-//              break
-//            case .cancelled:
-//              // User canceled the upload
-//              break
-//
-//            /* ... */
-//
-//            case .unknown:
-//              // Unknown error occurred, inspect the server response
-//              break
-//            default:
-//              // A separate error occurred. This is a good place to retry the upload.
-//              break
-//            }
-//          }
-//        }
-//
-//    }
-//
-//}
+        return ("")
     }
-    
 }
 
 extension GetImageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -162,9 +101,6 @@ extension GetImageViewController: UIImagePickerControllerDelegate, UINavigationC
         }
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-    
 }
 
 extension GetImageViewController: UIPopoverPresentationControllerDelegate {
