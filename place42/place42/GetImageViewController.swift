@@ -78,7 +78,7 @@ class GetImageViewController: UIViewController {
         let filePath = "image" + dateToString(Date())
         let metaData = StorageMetadata()
         metaData.contentType = "image/png"
-        storage.reference().child(filePath).putData(data, metadata: metaData) {
+        storage.reference().child("images").child(filePath).putData(data, metadata: metaData) {
             (metaData, error) in
             if let error = error {
                 print(error)

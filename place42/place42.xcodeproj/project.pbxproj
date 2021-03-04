@@ -12,6 +12,8 @@
 		7A09A64B25EF8734004EE99D /* AlbumImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A09A64A25EF8734004EE99D /* AlbumImageCollectionViewCell.swift */; };
 		7A09A64D25EF89C8004EE99D /* ImagePickingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A09A64C25EF89C8004EE99D /* ImagePickingViewController.swift */; };
 		7A816F9F25EFB68A00C58852 /* GetImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A816F9E25EFB68A00C58852 /* GetImageViewController.swift */; };
+		7A9BC32625F0C71F008D0148 /* GettingAPIsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC32525F0C71F008D0148 /* GettingAPIsViewController.swift */; };
+		7A9BC32925F0C776008D0148 /* GettingApiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC32825F0C776008D0148 /* GettingApiTableViewCell.swift */; };
 		7AB910B925E9143D00D2AE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910B825E9143D00D2AE86 /* AppDelegate.swift */; };
 		7AB910BB25E9143D00D2AE86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */; };
 		7AB910BD25E9143D00D2AE86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910BC25E9143D00D2AE86 /* ViewController.swift */; };
@@ -33,6 +35,8 @@
 		7A09A64A25EF8734004EE99D /* AlbumImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A09A64C25EF89C8004EE99D /* ImagePickingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickingViewController.swift; sourceTree = "<group>"; };
 		7A816F9E25EFB68A00C58852 /* GetImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageViewController.swift; sourceTree = "<group>"; };
+		7A9BC32525F0C71F008D0148 /* GettingAPIsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingAPIsViewController.swift; sourceTree = "<group>"; };
+		7A9BC32825F0C776008D0148 /* GettingApiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingApiTableViewCell.swift; sourceTree = "<group>"; };
 		7AB910B525E9143D00D2AE86 /* place42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = place42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB910B825E9143D00D2AE86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				7AB910BE25E9143D00D2AE86 /* Main.storyboard */,
 				7AD647AD25EE4CFD009682DF /* GooglePlacesViewController.swift */,
 				7AD6478725ED1E7A009682DF /* MusicPlayer.swift */,
+				7A9BC32525F0C71F008D0148 /* GettingAPIsViewController.swift */,
+				7A9BC32825F0C776008D0148 /* GettingApiTableViewCell.swift */,
 				7AD6478925EE1092009682DF /* MusicPlayerViewController.swift */,
 				7AB910C125E9143D00D2AE86 /* Assets.xcassets */,
 				7A09A64825EF69D3004EE99D /* GoogleService-Info.plist */,
@@ -256,11 +262,13 @@
 				7A09A64B25EF8734004EE99D /* AlbumImageCollectionViewCell.swift in Sources */,
 				7AD647AE25EE4CFD009682DF /* GooglePlacesViewController.swift in Sources */,
 				7A09A64D25EF89C8004EE99D /* ImagePickingViewController.swift in Sources */,
+				7A9BC32925F0C776008D0148 /* GettingApiTableViewCell.swift in Sources */,
 				7A816F9F25EFB68A00C58852 /* GetImageViewController.swift in Sources */,
 				7AB910BD25E9143D00D2AE86 /* ViewController.swift in Sources */,
 				7AB910B925E9143D00D2AE86 /* AppDelegate.swift in Sources */,
 				7AD6478A25EE1092009682DF /* MusicPlayerViewController.swift in Sources */,
 				7A09A64725EE6427004EE99D /* DatabaseViewController.swift in Sources */,
+				7A9BC32625F0C71F008D0148 /* GettingAPIsViewController.swift in Sources */,
 				7AD6478825ED1E7A009682DF /* MusicPlayer.swift in Sources */,
 				7AB910BB25E9143D00D2AE86 /* SceneDelegate.swift in Sources */,
 			);
