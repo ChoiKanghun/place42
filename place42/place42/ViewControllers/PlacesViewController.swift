@@ -55,10 +55,8 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate, UINa
 //                print (error)
 //            }
 //            else if snapshot.exists() {
-//                let values = snapshot.value
-//                let places = values as! [String: [String: Any]]
-//                placesCount = places.count
-//                print("placesCount = \(placesCount)")
+//                placesCount = Int(snapshot.childrenCount)
+//                print(placesCount)
 //            }
 //            else {
 //                print("No data available")
@@ -66,8 +64,7 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate, UINa
 //        }
 //        print("placesCount = \(placesCount)")
 //        return placesCount
-        return 1
-        
+        return 2
     }
     
     func setTableViewCell(cell: PlaceTableViewCell, key: String, value: String) {
@@ -114,8 +111,10 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate, UINa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: PlaceTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.placesTableViewCellIdentifier) as? PlaceTableViewCell
+        guard let cell: PlaceTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.placesTableViewCellIdentifier, for: indexPath) as? PlaceTableViewCell
         else { return UITableViewCell() }
+        
+        print(indexPath)
         
         self.ref.child("places").getData {
             (error, snapshot) in
@@ -131,7 +130,7 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate, UINa
                         
                         if typeOfValue == "NSTaggedPointerString" ||
                             typeOfValue == "__NSCFString" {
-                            self.setTableViewCell(cell: cell, key: i.key, value: i.value as! String)
+                            self.setTableViewCell (cell: cell, key: i.key, value: i.value as! String)
                         }
                         if typeOfValue == "__NSCFNumber"  {
                             self.setTableViewCell(cell: cell, key: i.key, value: String(describing: i.value))
@@ -143,8 +142,11 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate, UINa
                 print ("no data available")
             }
         }
-        
-        
+
         return (cell)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 101
     }
 }
