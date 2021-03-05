@@ -30,7 +30,6 @@ class GettingAPIsViewController: UIViewController {
                 self.imageView?.image = image
             }
         })
-        
     }
     
     override func viewDidLoad() {
