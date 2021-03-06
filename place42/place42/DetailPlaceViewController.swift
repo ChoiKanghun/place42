@@ -10,10 +10,25 @@ import UIKit
 
 class DetailPlaceViewController: UIViewController {
 
+    @IBOutlet weak var placeNameLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var placeImageView: UIImageView!
+    
+    @IBOutlet weak var commentsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.placeNameLabel?.text = PlaceInfo.shared.placeName
+        self.categoryLabel?.text = PlaceInfo.shared.placeCategory
+        self.addressLabel?.text = PlaceInfo.shared.placeAddress
+        self.ratingLabel?.text = PlaceInfo.shared.placeRating
+        self.placeImageView?.image = PlaceInfo.shared.placeImage
+        self.commentsTableView.delegate = self
+        self.commentsTableView.dataSource = self
+        
     }
     
 
@@ -27,4 +42,19 @@ class DetailPlaceViewController: UIViewController {
     }
     */
 
+}
+
+extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
 }

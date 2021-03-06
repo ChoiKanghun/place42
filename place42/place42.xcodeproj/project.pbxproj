@@ -17,6 +17,7 @@
 		7A9BC32D25F1F587008D0148 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC32C25F1F587008D0148 /* PlacesViewController.swift */; };
 		7A9BC33125F1F5E4008D0148 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC33025F1F5E4008D0148 /* PlaceTableViewCell.swift */; };
 		7A9BC33525F1F620008D0148 /* DetailPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC33425F1F620008D0148 /* DetailPlaceViewController.swift */; };
+		7A9BC33925F24A3C008D0148 /* PlaceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC33825F24A3C008D0148 /* PlaceInfo.swift */; };
 		7AB910B925E9143D00D2AE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910B825E9143D00D2AE86 /* AppDelegate.swift */; };
 		7AB910BB25E9143D00D2AE86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */; };
 		7AB910BD25E9143D00D2AE86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910BC25E9143D00D2AE86 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		7A9BC32C25F1F587008D0148 /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		7A9BC33025F1F5E4008D0148 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		7A9BC33425F1F620008D0148 /* DetailPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailPlaceViewController.swift; path = place42/DetailPlaceViewController.swift; sourceTree = SOURCE_ROOT; };
+		7A9BC33825F24A3C008D0148 /* PlaceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfo.swift; sourceTree = "<group>"; };
 		7AB910B525E9143D00D2AE86 /* place42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = place42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB910B825E9143D00D2AE86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		7A9BC33725F24A26008D0148 /* swiftFiles */ = {
+			isa = PBXGroup;
+			children = (
+				7A9BC33825F24A3C008D0148 /* PlaceInfo.swift */,
+			);
+			path = swiftFiles;
+			sourceTree = "<group>";
+		};
 		7AB910AC25E9143C00D2AE86 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		7AB910B725E9143D00D2AE86 /* place42 */ = {
 			isa = PBXGroup;
 			children = (
+				7A9BC33725F24A26008D0148 /* swiftFiles */,
 				7A9BC32F25F1F5D0008D0148 /* TableViewCells */,
 				7A9BC32B25F1F54F008D0148 /* ViewControllers */,
 				7AB910B825E9143D00D2AE86 /* AppDelegate.swift */,
@@ -295,6 +306,7 @@
 				7A9BC32D25F1F587008D0148 /* PlacesViewController.swift in Sources */,
 				7AD6478A25EE1092009682DF /* MusicPlayerViewController.swift in Sources */,
 				7A09A64725EE6427004EE99D /* DatabaseViewController.swift in Sources */,
+				7A9BC33925F24A3C008D0148 /* PlaceInfo.swift in Sources */,
 				7A9BC32625F0C71F008D0148 /* GettingAPIsViewController.swift in Sources */,
 				7AD6478825ED1E7A009682DF /* MusicPlayer.swift in Sources */,
 				7AB910BB25E9143D00D2AE86 /* SceneDelegate.swift in Sources */,

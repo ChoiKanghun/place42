@@ -16,7 +16,23 @@ class PlaceTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     
-    
+    @IBOutlet weak var goToDetailUIButton: UIButton!
+//
+//    @IBAction func goToDetail(_ sender: UIButton) {
+//        PlaceInfo.shared.placeName = self.placeNameLabel?.text
+//        PlaceInfo.shared.placeCategory = self.categoryLabel?.text
+//        PlaceInfo.shared.placeAddress = self.addressLabel?.text
+//        PlaceInfo.shared.placeRating = self.ratingLabel?.text
+//        PlaceInfo.shared.placeImage = self.placeImageView?.image
+//
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "DetailPlaceViewController", bundle: nil)
+//        let detailPlaceViewController = storyBoard.instantiateViewController(identifier: "DetailPlaceViewController") as! DetailPlaceViewController
+//        self.present(detailPlaceViewController)
+//
+//        let newViewController: DetailPlaceViewController = DetailPlaceViewController()
+//
+//
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

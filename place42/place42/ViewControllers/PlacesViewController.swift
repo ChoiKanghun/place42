@@ -17,6 +17,9 @@ class PlacesViewController: UIViewController {
     @IBOutlet weak var placesTableView: UITableView!
     let placesTableViewCellIdentifier: String = "placesTableViewCell"
     
+    var placesCount: Int = 0
+    var placeData: DataSnapshot = DataSnapshot()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
@@ -24,49 +27,44 @@ class PlacesViewController: UIViewController {
         self.placesTableView.dataSource = self
         
         getPlaceInfo()
-        // Do any additional setup after loading the view.
     }
-    
-    func getPlaceInfo(){
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func getPlaceInfo(){
+        self.ref.child("places").getData {
+            (error, snapshot) in
+            if let error = error {
+                print ("Error on getting places API data: \(error)")
+            }
+            else if snapshot.exists() {
+                self.placeData = snapshot
+                DispatchQueue.main.async {
+                    self.placesTableView.reloadData()
+                }
+            }
+        }
     }
-    */
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    
+    }
 
 }
 
-extension PlacesViewController: UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
+extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
     
+    // tableViewCell을 총 몇 개 나타낼 지 결정하는 함수.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        var placesCount = 0
-//        self.ref.child("places").getData {
-//            (error, snapshot) in
-//            if let error = error {
-//                print("getting places data error")
-//                print (error)
-//            }
-//            else if snapshot.exists() {
-//                placesCount = Int(snapshot.childrenCount)
-//                print(placesCount)
-//            }
-//            else {
-//                print("No data available")
-//            }
-//        }
-//        print("placesCount = \(placesCount)")
-//        return placesCount
-        return 2
+        return Int(self.placeData.childrenCount)
     }
     
+    // tableViewCell의 사진과 레이블을 채우는 함수.
     func setTableViewCell(cell: PlaceTableViewCell, key: String, value: String) {
         if (key == "category") {
             DispatchQueue.main.async {
@@ -109,44 +107,57 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate, UINa
             return
         }
     }
-    
+
+    // 각각의 tableViewCell에 대한 처리를 담당하는 함수.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: PlaceTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.placesTableViewCellIdentifier, for: indexPath) as? PlaceTableViewCell
         else { return UITableViewCell() }
+
+        guard let values = self.placeData.value
+        else { return UITableViewCell() }
+        let places = values as! [String: [String: Any]]
+        print(places)
+        var index: Int = 0
         
-        print(indexPath)
-        
-        self.ref.child("places").getData {
-            (error, snapshot) in
-            if let error = error {
-                print ("Error on getting places API data: \(error)")
-            }
-            else if snapshot.exists() {
-                let values = snapshot.value
-                let places = values as! [String: [String: Any]]
-                for index in places {
-                    for i in index.value {
-                        let typeOfValue = String(describing: type(of: i.value))
-                        
-                        if typeOfValue == "NSTaggedPointerString" ||
-                            typeOfValue == "__NSCFString" {
-                            self.setTableViewCell (cell: cell, key: i.key, value: i.value as! String)
-                        }
-                        if typeOfValue == "__NSCFNumber"  {
-                            self.setTableViewCell(cell: cell, key: i.key, value: String(describing: i.value))
-                        }
+        for item in places {
+            if (index == indexPath.row) {
+                for i in item.value {
+                    let typeOfValue = String(describing: type(of: i.value))
+                    if typeOfValue == "NSTaggedPointerString" ||
+                        typeOfValue == "__NSCFString" {
+                        self.setTableViewCell(cell: cell, key: i.key,value: i.value as! String)
+                    }
+                    else if typeOfValue == "__NSCFNumber" {
+                        self.setTableViewCell(cell: cell, key: i.key,value: String(describing: i.value))
                     }
                 }
             }
-            else {
-                print ("no data available")
-            }
+            index += 1
         }
-
         return (cell)
     }
     
+    // 각 tableViewCell의 높이
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 101
+    }
+    
+    // 각 cell을 클릭했을 때에 대한 처리
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell: PlaceTableViewCell = self.placesTableView.cellForRow(at: indexPath) as? PlaceTableViewCell
+        else {return}
+        
+        PlaceInfo.shared.placeName      = cell.placeNameLabel?.text
+        PlaceInfo.shared.placeCategory  = cell.categoryLabel?.text
+        PlaceInfo.shared.placeAddress   = cell.addressLabel?.text
+        PlaceInfo.shared.placeRating    = cell.ratingLabel?.text
+        PlaceInfo.shared.placeImage     = cell.placeImageView?.image
+        
+        DispatchQueue.main.async {
+            let storyBoard: UIStoryboard
+                = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController  = storyBoard.instantiateViewController(identifier: "DetailPlaceViewController") as! DetailPlaceViewController
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        }
     }
 }
