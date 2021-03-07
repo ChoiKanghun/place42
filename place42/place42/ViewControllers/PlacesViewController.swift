@@ -18,7 +18,6 @@ class PlacesViewController: UIViewController {
     let placesTableViewCellIdentifier: String = "placesTableViewCell"
     
     var placesCount: Int = 0
-    var placeData: DataSnapshot = DataSnapshot()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +39,7 @@ class PlacesViewController: UIViewController {
                 print ("Error on getting places API data: \(error)")
             }
             else if snapshot.exists() {
-                self.placeData = snapshot
+                PlaceInfo.shared.placesData = snapshot
                 DispatchQueue.main.async {
                     self.placesTableView.reloadData()
                 }
@@ -61,7 +60,7 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
     
     // tableViewCell을 총 몇 개 나타낼 지 결정하는 함수.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Int(self.placeData.childrenCount)
+        return Int(PlaceInfo.shared.placesData.childrenCount)
     }
     
     // tableViewCell의 사진과 레이블을 채우는 함수.
@@ -113,15 +112,14 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell: PlaceTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.placesTableViewCellIdentifier, for: indexPath) as? PlaceTableViewCell
         else { return UITableViewCell() }
 
-        guard let values = self.placeData.value
+        guard let placeInfoDataValue = PlaceInfo.shared.placesData.value
         else { return UITableViewCell() }
-        let places = values as! [String: [String: Any]]
-        print(places)
+        let places = placeInfoDataValue as! [String: [String: Any]]
         var index: Int = 0
         
-        for item in places {
+        for place in places {
             if (index == indexPath.row) {
-                for i in item.value {
+                for i in place.value {
                     let typeOfValue = String(describing: type(of: i.value))
                     if typeOfValue == "NSTaggedPointerString" ||
                         typeOfValue == "__NSCFString" {
@@ -153,11 +151,44 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
         PlaceInfo.shared.placeRating    = cell.ratingLabel?.text
         PlaceInfo.shared.placeImage     = cell.placeImageView?.image
         
-        DispatchQueue.main.async {
-            let storyBoard: UIStoryboard
-                = UIStoryboard(name: "Main", bundle: nil)
-            let nextViewController  = storyBoard.instantiateViewController(identifier: "DetailPlaceViewController") as! DetailPlaceViewController
-            self.navigationController?.pushViewController(nextViewController, animated: true)
+        guard let placeInfoDataValue = PlaceInfo.shared.placesData.value
+        else {
+            print ("error getting placeInfoData on didSelectRowAt")
+            return
         }
+
+
+        for index in 0..<PlaceInfo.shared.placesData.childrenCount {
+            if index == indexPath.row {
+                let places = placeInfoDataValue as! [String: [String: Any]]
+                let placesArray = Array(places)
+                let place = placesArray[Int(index)].value
+                guard let comments = place["comments"]
+                else {
+                    print("getting comments of a place error")
+                    return
+                }
+//                print (comments)
+//                print (type(of: comments))
+                guard let commentsNSDictionary = comments as? [String: [String:Any]]
+                else {
+                    print("converting to commentsNsDictionary error")
+                    return
+                }
+                PlaceInfo.shared.commentsNSDictionary = commentsNSDictionary as NSDictionary
+//                let commentsArray = Array(commentsNSDictionary)
+//
+//                PlaceInfo.shared.commentsArray = commentsArray
+                DispatchQueue.main.async {
+                    let storyBoard: UIStoryboard
+                        = UIStoryboard(name: "Main", bundle: nil)
+                    let nextViewController  = storyBoard.instantiateViewController(identifier: "DetailPlaceViewController") as! DetailPlaceViewController
+                    self.navigationController?.pushViewController(nextViewController, animated: true)
+                }
+                return
+            }
+        }
+
+            
     }
 }

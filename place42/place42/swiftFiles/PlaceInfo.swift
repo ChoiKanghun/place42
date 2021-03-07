@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class PlaceInfo {
     static let shared = PlaceInfo()
@@ -17,4 +18,8 @@ class PlaceInfo {
     var placeAddress: String?
     var placeCategory: String?
     var placeImage: UIImage!
+    var placesData: DataSnapshot = DataSnapshot()
+    
+    var commentsNSDictionary: NSDictionary? = NSDictionary()
+
 }
