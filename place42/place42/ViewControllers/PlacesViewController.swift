@@ -86,21 +86,7 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
         else if (key == "image_address") {
-            let pathReference = storage.reference(withPath: "images")
-            let islandRef = pathReference.child(value)
-            islandRef.getData(maxSize: 10 * 1024 * 1024, completion: {
-                (data, error) in
-                if let error = error {
-                    print ("Getting image error")
-                    print(error)
-                }
-                else {
-                    let image = UIImage(data: data!)
-                    DispatchQueue.main.async {
-                        cell.placeImageView?.image = image
-                    }
-                }
-            })
+            
         }
         else {
             return
@@ -114,23 +100,44 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
 
         guard let placeInfoDataValue = PlaceInfo.shared.placesData.value
         else { return UITableViewCell() }
-        let places = placeInfoDataValue as! [String: [String: Any]]
-        var index: Int = 0
-        
-        for place in places {
-            if (index == indexPath.row) {
-                for i in place.value {
-                    let typeOfValue = String(describing: type(of: i.value))
-                    if typeOfValue == "NSTaggedPointerString" ||
-                        typeOfValue == "__NSCFString" {
-                        self.setTableViewCell(cell: cell, key: i.key,value: i.value as! String)
+ 
+        for index in 0..<PlaceInfo.shared.placesData.childrenCount {
+            if index == indexPath.row {
+                let places = placeInfoDataValue as! [String: [String:Any]]
+                
+                let placesArray = Array(places)
+                let place = placesArray[Int(index)].value
+                for item in place {
+                    if (item.key == "place_name") {
+                        cell.placeNameLabel?.text = String(describing: item.value)
                     }
-                    else if typeOfValue == "__NSCFNumber" {
-                        self.setTableViewCell(cell: cell, key: i.key,value: String(describing: i.value))
+                    else if (item.key == "address_korean") {
+                        cell.addressLabel?.text = String(describing: item.value)
+                    }
+                    else if (item.key == "rating") {
+                        cell.ratingLabel?.text = String(describing: item.value)
+                    }
+                    else if (item.key == "category") {
+                        cell.categoryLabel?.text = String(describing: item.value)
+                    }
+                    else if (item.key == "image_address") {
+                        let pathReference = storage.reference(withPath: "images")
+                        let imagePathReference = pathReference.child(String(describing: item.value))
+                        
+                        imagePathReference.getData(maxSize: 10 * 1024 * 1024, completion: {
+                            (data, error) in
+                            if let error = error {
+                                print ("Getting image error")
+                                print(error)
+                            }
+                            else {
+                                let image = UIImage(data: data!)
+                                cell.placeImageView?.image = image
+                            }
+                        })
                     }
                 }
             }
-            index += 1
         }
         return (cell)
     }
@@ -168,13 +175,16 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
                     print("getting comments of a place error")
                     return
                 }
+                
 //                print (comments)
-//                print (type(of: comments))
-                guard let commentsNSDictionary = comments as? [String: [String:Any]]
+                print (type(of: comments))
+                guard let commentsNSDictionary:Dictionary<String, Any> = comments as? [String: [String:Any]]
                 else {
                     print("converting to commentsNsDictionary error")
                     return
                 }
+//                print(commentsNSDictionary)
+                
                 PlaceInfo.shared.commentsNSDictionary = commentsNSDictionary as NSDictionary
 //                let commentsArray = Array(commentsNSDictionary)
 //
