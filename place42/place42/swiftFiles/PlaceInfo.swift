@@ -20,6 +20,6 @@ class PlaceInfo {
     var placeImage: UIImage!
     var placesData: DataSnapshot = DataSnapshot()
     
-    var commentsNSDictionary: NSDictionary? = NSDictionary()
+    var commentsNSDictionary: Any?
 
 }
