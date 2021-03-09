@@ -11,6 +11,15 @@ import Firebase
 
 class DetailPlaceViewController: UIViewController {
 
+    var addressText: String?
+    var placeNameText: String?
+    var ratingText: String?
+    var categoryText: String?
+    var placeImage: UIImage?
+    var commentsArray: Array<(key: String, value: AnyObject)>?
+    
+
+    
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
@@ -21,19 +30,26 @@ class DetailPlaceViewController: UIViewController {
 
     let storage = Storage.storage()
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.placeNameLabel?.text           = PlaceInfo.shared.placeName
-        self.categoryLabel?.text            = PlaceInfo.shared.placeCategory
-        self.addressLabel?.text             = PlaceInfo.shared.placeAddress
-        self.ratingLabel?.text              = PlaceInfo.shared.placeRating
-        self.placeImageView?.image          = PlaceInfo.shared.placeImage
         self.commentsTableView.delegate     = self
         self.commentsTableView.dataSource   = self
         
+
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.placeNameLabel?.text           = self.placeNameText
+        self.categoryLabel?.text            = self.categoryText
+        self.ratingLabel?.text              = self.ratingText
+        self.addressLabel?.text             = self.addressText
+        self.placeImageView?.image          = self.placeImage
+    }
 
 
     /*
@@ -55,104 +71,89 @@ extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        guard let commentsNSDictionary = PlaceInfo.shared.commentsNSDictionary
-//        else {return 0}
-//
-//        return commentsNSDictionary.count
-        return (0)
+
+        guard let commentsArray = self.commentsArray
+        else {
+            print("getting self.commentsArray error on numOfRowsInSection")
+            return 0
+        }
+        return (commentsArray.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        guard let cell: CommentTableViewCell = self.commentsTableView.dequeueReusableCell(withIdentifier: self.tableViewCellIdentifier) as? CommentTableViewCell
-//        else {return UITableViewCell()}
-//
-//        guard let commentsNSDictionary = PlaceInfo.shared.commentsNSDictionary
-//        else {
-//            print ("getting comments from singleton comments")
-//            return UITableViewCell()
-//        }
-//
-//        let commentSwiftDeferredNSDictionary = commentsNSDictionary.allValues[indexPath.row]
-////        print(commentSwiftDeferredNSDictionary)
-//        let comment = commentSwiftDeferredNSDictionary as! Dictionary<String, Any>
-//        print(comment)
-//        print(type(of: comment))
-//
-//        let storageReference = storage.reference(withPath: "images")
-//
-//        for item in comment {
-//            if (item.key == "comment") {
-//                cell.commentLabel?.text = String(describing: item.value)
-//            }
-//            else if (item.key == "rating") {
-//                cell.ratingLabel?.text = String(describing: item.value)
-//            }
-//            else if (item.key == "user_id") {
-//                cell.userIdLabel?.text = String(describing: item.value)
-//            }
-//            else if (item.key == "comment_image_address") {
-//                let imageAddress = String(describing: item.value)
-//                let imageRef = storageReference.child(imageAddress)
-//
-//                // 1024 * 1024 * 10 = 10MB
-//                imageRef.getData(maxSize: 10 * 1024 * 1024, completion: {
-//                    (data, error) in
-//                    if let error = error {
-//                        print (error)
-//                    }
-//                    else {
-//                        let image = UIImage(data: data!)
-//                        cell.commentImageView?.image = image
-//                    }
-//                })
-//            }
-//
-//        }
-//
-//
-//
-////        print("comments: \(comments.keys)")
-////        print("comments keys count : \(commentsCount)")
-//////        print("comments.count:\(comments.count)")
-////        for index in 0..<commentsCount {
-////            if index == indexPath.row {
-//////                print("index:\(index), indexPath.row:\(indexPath.row)")
-////                let comment = Array(comments)[index].value
-////
-//                // 지금 여기서 comment.key 는 comment_someone
-////                print(comment)
-//
-//
-//
-////                for i in 0..<commentsCount {
-////                    if comment[i].key == "rating" {
-////                        print(type(of: comment[i].value))
-////                    }
-////                    else if (comment[i].key == "comment") {
-////                        DispatchQueue.main.async {
-////                            cell.commentLabel?.text = comment[i].value as? String
-////
-////                        }
-////                    }
-////                    else if (comment[i].key == "user_id") {
-////                    }
-////                    else if (comment[i].key == "image_address") {
-////                    }
-////                }
-////                for comment in comments {
-////                    guard let userComment = comment.value as? [String: Any]
-////                    else {return UITableViewCell()}
-////
-////                    print (userComment)
-////                    print (userComment.keys)
-////
-////                }
-////            }
-////        }
-//
-//        return cell
-        return UITableViewCell()
+
+        let storageImagesReference = self.storage.reference(withPath: "images")
+
+        guard let cell: CommentTableViewCell = self.commentsTableView.dequeueReusableCell(withIdentifier: self.tableViewCellIdentifier) as? CommentTableViewCell
+        else {return UITableViewCell()}
+
+        guard let commentsArray = self.commentsArray
+        else {
+            print("getting self.commentsArray error")
+            return UITableViewCell()
+            
+        }
+        for index in 0..<commentsArray.count {
+            if index == indexPath.row {
+                let comment = commentsArray[index]
+                print("comment Info")
+                print(comment)
+                print(comment.value)
+                guard let commentUserId = comment.value["user_id"]
+                else {
+                    print ("getting comment.value['user_id'] error")
+                    return UITableViewCell()
+                }
+                guard let commentComment = comment.value["comment"]
+                else {
+                    print("getting comment.value['comment'] error")
+                    return UITableViewCell()
+                }
+                guard let commentRating = comment.value["comment_rating"]
+                else {
+                    print("getting comment.value['comment_rating'] error")
+                    return UITableViewCell()
+                }
+                guard let commentImageAddress = comment.value["comment_image_address"] as? String
+                else {
+                    print("getting comment.value['comment_image_address'] error")
+                    return UITableViewCell()
+                }
+                guard let commentUserIdText = commentUserId as? String
+                else {
+                    print("unwrapping error")
+                    return UITableViewCell()
+                }
+                guard let commentRatingDouble = commentRating as? Double
+                else {
+                    print("unwrapping error on commentRating to commentRatingText")
+                    return UITableViewCell()
+                }
+                guard let commentCommentText = commentComment as? String
+                else {
+                    print("unwrapping error")
+                    return UITableViewCell()
+                }
+                let imageReference = storageImagesReference.child("\(commentImageAddress)")
+                imageReference.getData(maxSize: 10 * 1024 * 1024, completion: {
+                    (data, error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    else {
+                        let image = UIImage(data: data!)
+                        cell.commentImageView?.image = image
+                        cell.userIdLabel?.text = commentUserIdText
+                        cell.commentLabel?.text = commentCommentText
+                        cell.ratingLabel?.text = String(commentRatingDouble)
+                    }
+                })
+                
+                
+            }
+        }
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
