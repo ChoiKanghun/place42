@@ -33,9 +33,9 @@ class GetImageViewController: UIViewController {
             self.openCamera()
         }
         let cancelAlertAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        alertController.addAction(photoLibraryAlertAction)
-        alertController.addAction(cameraAlertAction)
-        alertController.addAction(cancelAlertAction)
+        self.alertController.addAction(photoLibraryAlertAction)
+        self.alertController.addAction(cameraAlertAction)
+        self.alertController.addAction(cancelAlertAction)
         guard let alertControllerPopoverPresentationController
                 = alertController.popoverPresentationController
         else {return}

@@ -26,9 +26,20 @@ class PlacesViewController: UIViewController {
         ref = Database.database().reference()
         self.placesTableView.delegate = self
         self.placesTableView.dataSource = self
+        self.configureNavigation()
+        
         
         testGetPlaceInfo()
     }
+    
+    func configureNavigation()  {
+           self.navigationItem.title = "42 Places"
+           self.navigationController?.navigationBar.barTintColor = .black
+           self.navigationController?.navigationBar.backgroundColor = .white
+           let attributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font:UIFont(name: "Verdana-bold", size: 17)]
+           self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
+       }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

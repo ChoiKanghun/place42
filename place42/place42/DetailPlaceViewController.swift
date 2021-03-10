@@ -35,11 +35,9 @@ class DetailPlaceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.commentsTableView.delegate     = self
         self.commentsTableView.dataSource   = self
-        
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +47,9 @@ class DetailPlaceViewController: UIViewController {
         self.ratingLabel?.text              = self.ratingText
         self.addressLabel?.text             = self.addressText
         self.placeImageView?.image          = self.placeImage
+        DispatchQueue.main.async {
+            self.commentsTableView?.reloadData()
+        }
     }
 
 
