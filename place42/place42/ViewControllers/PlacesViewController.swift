@@ -125,7 +125,7 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
                         as? String
                 else {return UITableViewCell()}
                 let imageReference = storageImagesReference.child("\(imageAddress)")
-                print(imageAddress)
+//                print("imageAddress: \(imageAddress)")
                 imageReference.getData(maxSize: 10 * 1024 * 1024, completion: {
                     (data, error) in
                     if let error = error {
@@ -172,7 +172,7 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
 //                print(place.key) // place의 key를 얻어올 수 있다.
 //                print(type(of: place.key))
                 self.ref.child("places/\(place.key)/user_comments").observeSingleEvent(of: .value, andPreviousSiblingKeyWith: { (snapshot, error) in
-                    print(snapshot)
+//                    print(snapshot)
                     let commentsInfo = snapshot.value as? [String:AnyObject] ?? [:]
                     let commentsInfoArray = Array(commentsInfo)
 //                    print(type(of: placeInfoArray)) //Array<(key: String, value: AnyObject)>
@@ -187,6 +187,8 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
                             nextViewController.ratingText = cell.ratingLabel?.text
                             nextViewController.categoryText = cell.categoryLabel?.text
                             nextViewController.placeImage = cell.placeImageView?.image
+                            PlaceInfo.shared.placeKey = place.key
+                // placeKey는 PostCommentViewController에서 씀.
                             self.navigationController?.pushViewController(nextViewController, animated: true)
                         }
                     }

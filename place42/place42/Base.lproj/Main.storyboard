@@ -592,7 +592,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O9I-7j-Swi">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touch_up_add_image_image" translatesAutoresizingMaskIntoConstraints="NO" id="O9I-7j-Swi">
                                 <rect key="frame" x="57" y="138" width="300" height="300"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -600,8 +600,14 @@
                                     <constraint firstAttribute="height" constant="300" id="grY-h8-AOG"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="used id를 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xjg-Vk-PqU">
+                                <rect key="frame" x="57" y="552" width="300" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ufw-Qm-kLE">
-                                <rect key="frame" x="57" y="553" width="300" height="268"/>
+                                <rect key="frame" x="46" y="594" width="300" height="268"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -611,12 +617,40 @@
                                     <outlet property="delegate" destination="7k0-9G-dPW" id="H1i-yh-5Ni"/>
                                 </connections>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="used id를 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xjg-Vk-PqU">
-                                <rect key="frame" x="57" y="472" width="300" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3V-Jp-RhL">
+                                <rect key="frame" x="158" y="510" width="76" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star_full" translatesAutoresizingMaskIntoConstraints="NO" id="oYS-bA-bMA">
+                                <rect key="frame" x="95" y="464" width="39" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star_full" translatesAutoresizingMaskIntoConstraints="NO" id="3vb-Yy-oKH">
+                                <rect key="frame" x="139" y="464" width="39" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star_full" translatesAutoresizingMaskIntoConstraints="NO" id="9SK-5k-naZ">
+                                <rect key="frame" x="186" y="464" width="39" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star_full" translatesAutoresizingMaskIntoConstraints="NO" id="yw6-SO-O6K">
+                                <rect key="frame" x="281" y="464" width="39" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star_full" translatesAutoresizingMaskIntoConstraints="NO" id="vE2-UL-aIh">
+                                <rect key="frame" x="234" y="464" width="39" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="kkx-QZ-rtl">
+                                <rect key="frame" x="113" y="471" width="193" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="onDragStarSlider:" destination="7k0-9G-dPW" eventType="valueChanged" id="N3T-nO-lGx"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gzk-tK-ZXp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -634,6 +668,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="commentTextView" destination="ufw-Qm-kLE" id="3MV-V2-dff"/>
+                        <outlet property="ratingLabel" destination="H3V-Jp-RhL" id="jEc-9K-NNt"/>
+                        <outlet property="timeSlider" destination="kkx-QZ-rtl" id="fhV-g8-Eof"/>
                         <outlet property="userCommentImageView" destination="O9I-7j-Swi" id="iWS-hq-OWW"/>
                         <outlet property="userIdTextField" destination="xjg-Vk-PqU" id="HeM-We-VTz"/>
                     </connections>
@@ -795,6 +831,8 @@
     </scenes>
     <resources>
         <image name="star" width="128" height="128"/>
+        <image name="star_full" width="48" height="48"/>
+        <image name="touch_up_add_image_image" width="960" height="540"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

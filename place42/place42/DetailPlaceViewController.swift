@@ -53,15 +53,29 @@ class DetailPlaceViewController: UIViewController {
     }
 
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let nextViewController: PostCommentViewController
+                = segue.destination as? PostCommentViewController
+        else {return}
+        
+        guard let commentsArray = self.commentsArray
+        else {
+            print("getting cmments array failure")
+            return
+        }
+        nextViewController.countOfComments = Double(commentsArray.count)
+        guard let rating = Double(self.ratingText!)
+        else {
+            print("getting self.ratingText failure")
+            return
+        }
+        nextViewController.placeRating = rating
     }
-    */
+    
 
 }
 
@@ -97,9 +111,8 @@ extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource 
         for index in 0..<commentsArray.count {
             if index == indexPath.row {
                 let comment = commentsArray[index]
-                print("comment Info")
-                print(comment)
-                print(comment.value)
+//                print(comment)
+//                print(comment.value)
                 guard let commentUserId = comment.value["user_id"]
                 else {
                     print ("getting comment.value['user_id'] error")
@@ -142,11 +155,19 @@ extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource 
                         print(error)
                     }
                     else {
-                        let image = UIImage(data: data!)
-                        cell.commentImageView?.image = image
-                        cell.userIdLabel?.text = commentUserIdText
-                        cell.commentLabel?.text = commentCommentText
-                        cell.ratingLabel?.text = String(commentRatingDouble)
+                        DispatchQueue.main.async {
+                            if let cellIndex: IndexPath = self.commentsTableView.indexPath(for: cell) {
+                                if cellIndex.row == indexPath.row {
+                                    let image = UIImage(data: data!)
+                                    cell.commentImageView?.image = image
+                                    cell.userIdLabel?.text = commentUserIdText
+                                    cell.commentLabel?.text = commentCommentText
+                                    cell.ratingLabel?.text =
+                                        String(commentRatingDouble)
+                                    
+                                }
+                            }
+                        }
                     }
                 })
                 

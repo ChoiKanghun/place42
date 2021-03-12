@@ -13,15 +13,5 @@ import Firebase
 class PlaceInfo {
     static let shared = PlaceInfo()
     
-    var placeName: String?
-    var placeRating: String?
-    var placeAddress: String?
-    var placeCategory: String?
-    var placeImage: UIImage!
-    var placesData: DataSnapshot = DataSnapshot()
-    
-    var placeData: [DataSnapshot]?
-    
-    var commentsNSDictionary: Any?
-
+    var placeKey: String?
 }
