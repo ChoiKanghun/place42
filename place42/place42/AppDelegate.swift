@@ -10,11 +10,47 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import Firebase
+import GoogleSignIn
 
 let googleApiKey = "AIzaSyBJvaTwMGsIVqMkZ7kyN6fcvDkdBHyz9ug"
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    // 구글 로그인 관련.
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        // sign함수 내 if let error ~ let credential 변수 까지는
+        // google 공식 문서를 따름.
+        if let error = error {
+            print ("error: \(error)")
+            return
+        }
+        
+        guard let authentication = user.authentication
+        else {
+            print("can't get user.authentication")
+            return
+        }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+    
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if let error = error {
+                let authError = error as NSError
+            
+                print("authError: \(authError)")
+                return
+            }
+            print("sign in success")
+        }
+        
+        
+        guard let userProileEmail = user.profile.email
+        else {
+            print ("couldn't geet user email")
+            return
+        }
+        print(userProileEmail)
+    }
+    
 
     var window: UIWindow?
     
@@ -22,6 +58,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey(googleApiKey)
         GMSPlacesClient.provideAPIKey(googleApiKey)
+        
+        // 구글 로그인 관련.
+        GIDSignIn.sharedInstance()?.clientID = "944731256906-uer210vtvfg4r8nrsdjbirg6cvk4iirs.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance()?.delegate = self
+        
+        
+        // Firebase 초기화.
         FirebaseApp.configure()
         return true
     }
@@ -38,6 +81,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url)
+    }
 
+    
 }
 
