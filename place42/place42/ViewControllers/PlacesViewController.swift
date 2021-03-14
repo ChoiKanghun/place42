@@ -21,6 +21,17 @@ class PlacesViewController: UIViewController {
     
     var placesArray: Array<(key: String, value: AnyObject)>?
     
+    @IBAction func touchUpSignOutButton(_ sender: UIBarButtonItem) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            print("signOut success")
+            self.navigationController?.popViewController(animated: true)
+        } catch let signOutError as NSError {
+            print("Error Signing out: %@", signOutError)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
@@ -28,8 +39,7 @@ class PlacesViewController: UIViewController {
         self.placesTableView.dataSource = self
         self.configureNavigation()
         
-        
-        testGetPlaceInfo()
+        getPlaceInfo()
     }
     
     func configureNavigation()  {
@@ -45,7 +55,7 @@ class PlacesViewController: UIViewController {
         
     }
 
-    func testGetPlaceInfo() {
+    func getPlaceInfo() {
         self.ref.child("places").observeSingleEvent(of: .value, andPreviousSiblingKeyWith: { (snapshot, error) in
             let places = snapshot.value as? [String:AnyObject] ?? [:]
 //            print(type(of: places)) // Dictionary<String, AnyObj>
@@ -57,26 +67,6 @@ class PlacesViewController: UIViewController {
         })
     }
     
-    func getPlaceInfo(){
-        self.ref.child("places").getData {
-            (error, snapshot) in
-            if let error = error {
-                print ("Error on getting places API data: \(error)")
-            }
-            else if snapshot.exists() {
-                
-//                PlaceInfo.shared.placesData = snapshot
-            }
-        }
-    }
-    
-    
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//
-//    }
-
 }
 
 extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {

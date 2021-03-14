@@ -12,4 +12,17 @@ class UserOAuthInfo {
     static let shared = UserOAuthInfo()
     
     var userEmail: String?
+    func getTruncatedUserEmail() -> String? {
+        guard let userEmailString: String = UserOAuthInfo.shared.userEmail
+        else {
+            print("error while unwrapping userEmailString")
+            return nil
+        }
+        let startIndex = userEmailString.startIndex
+        let endIndex = userEmailString.index(userEmailString.startIndex, offsetBy: 5)
+        let indexRange = startIndex...endIndex
+        let truncatedUserEmailString = userEmailString[indexRange]
+        return truncatedUserEmailString + "***"
+        
+    }
 }

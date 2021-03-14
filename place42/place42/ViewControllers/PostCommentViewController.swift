@@ -17,11 +17,10 @@ class PostCommentViewController: UIViewController {
     var placeRating: Double = 0
     
     @IBOutlet weak var userCommentImageView: UIImageView!
-    @IBOutlet weak var userIdTextField: UITextField!
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var ratingLabel: UILabel!
-
+    @IBOutlet weak var userLoginEmailLabel: UILabel!
     
     let alertController
         = UIAlertController(title: "올릴 방식을 선택하세요", message: "사진 찍기 또는 앨범에서 선택", preferredStyle: .actionSheet)
@@ -105,6 +104,12 @@ class PostCommentViewController: UIViewController {
         imagePickerController.delegate = self
         ref = Database.database().reference()
 
+        guard let userEmail = UserOAuthInfo.shared.userEmail
+        else {
+            print("can't get UserOAUTH email on PostCommentVC")
+            return
+        }
+        self.userLoginEmailLabel?.text = userEmail
         setDefaultImageAndAddGestureRecognizer()
         setPlaceholderOnTextView()
         enrollAlertEvent()
@@ -165,7 +170,7 @@ class PostCommentViewController: UIViewController {
     @IBAction func touchUpSubmitButton(_ sender: UIBarButtonItem) {
         
         var imagePath: String?
-        guard let userIdText = self.userIdTextField?.text
+        guard let userEmailTruncated = UserOAuthInfo.shared.getTruncatedUserEmail()
         else {return}
         guard let commentTextViewText = self.commentTextView?.text
         else {return}
@@ -173,12 +178,9 @@ class PostCommentViewController: UIViewController {
         else {return}
         guard let commentImage: UIImage = self.userCommentImageView?.image
         else {return}
-        // textView와 textField가 비었는지 확인.
-        if userIdText == "" {
-            self.present(self.warningAlertController, animated: true, completion: nil)
-            return
-        }
-        else if commentTextViewText == "한줄평을 입력하세요" {
+        
+        // textView가 비었는지 확인
+        if commentTextViewText == "한줄평을 입력하세요" {
             self.present(self.warningAlertController, animated: true, completion: nil)
             return
         }
@@ -205,7 +207,7 @@ class PostCommentViewController: UIViewController {
         
         self.ref.child("places/\(placeKey)/user_comments").childByAutoId().setValue([
             "comment":"\(commentTextViewText)",
-            "user_id":"\(userIdText)",
+            "user_id":"\(userEmailTruncated)",
             "comment_rating": commentRating,
             "comment_image_address": "\(imagePath!)"
         ])

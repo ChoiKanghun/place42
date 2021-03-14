@@ -30,7 +30,22 @@ class DetailPlaceViewController: UIViewController {
 
     let storage = Storage.storage()
     
-    
+    // 지도에서 위치 확인
+    @IBAction func checkLocation(_ sender: UIButton) {
+        guard let placeString = self.placeNameText
+        else {return}
+        // url 인코딩.
+        guard let urlEncodedSring = placeString.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
+        else {
+            print("url encoding failure")
+            return
+        }
+        if UIApplication.shared.canOpenURL(URL(string:"https://m.map.naver.com/search2/search.naver?query=" + urlEncodedSring)!) {
+            UIApplication.shared.open(URL(string:"https://m.map.naver.com/search2/search.naver?query=" + urlEncodedSring + "#/map")!, completionHandler: nil)
+        }
+        
+        self.navigationController?.popViewController(animated: true)
+    }
     
     
     override func viewDidLoad() {
