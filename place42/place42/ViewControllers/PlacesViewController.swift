@@ -37,6 +37,7 @@ class PlacesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ref = Database.database().reference()
         self.placesTableView.delegate = self
         self.placesTableView.dataSource = self
