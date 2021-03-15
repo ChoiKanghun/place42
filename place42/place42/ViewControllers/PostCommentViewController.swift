@@ -170,7 +170,8 @@ class PostCommentViewController: UIViewController {
         else {return}
         
         // textView가 비었는지 확인
-        if commentTextViewText == "한줄평을 입력하세요" {
+        if commentTextViewText == "한줄평을 입력하세요" ||
+            commentTextViewText == "" {
             self.present(self.warningAlertController, animated: true, completion: nil)
             return
         }

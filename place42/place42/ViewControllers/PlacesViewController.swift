@@ -48,6 +48,7 @@ class PlacesViewController: UIViewController {
         getPlaceInfo()
         self.placesTableView.frame
             = CGRect(x: 0, y: 0, width: ScreenSize.shared.screenWidth, height: ScreenSize.shared.screenHeight)
+        self.placesTableView.backgroundColor = .white
         
     }
    
@@ -167,6 +168,8 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
 
         guard let cell: PlaceTableViewCell = self.placesTableView.cellForRow(at: indexPath) as? PlaceTableViewCell
         else {return}
+        
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
 
         
         for index in 0..<placesDataArray.count {

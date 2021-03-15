@@ -28,6 +28,10 @@ class DetailPlaceViewController: UIViewController {
     @IBOutlet weak var toPostCommentButton: UIButton!
     @IBOutlet weak var placeInfoView: UIView!
     
+    @IBOutlet weak var viewTopHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var imageViewHeightConstant: NSLayoutConstraint!
+    
     let tableViewCellIdentifier: String = "commentTableViewCell"
 
     var ref: DatabaseReference!
@@ -35,6 +39,10 @@ class DetailPlaceViewController: UIViewController {
     
     // 화면이 완전히 로딩되기 전까지 로딩 이미지를 표시함.
     lazy var activityIndicator = Utils.shared.activityIndicator
+    
+    var maxTopHeight: CGFloat = 380
+    var minTopHeight: CGFloat = 50
+    
     
     // 지도에서 위치 확인
     @IBAction func checkLocation(_ sender: UIButton) {
@@ -100,6 +108,15 @@ class DetailPlaceViewController: UIViewController {
         self.placeInfoView.layer.shadowOpacity = 0.3 // alpha값입니다.
     }
     
+    func ifDeviceIpad() {
+        if ScreenSize.shared.screenHeight > 1000 {
+            self.viewTopHeight.constant = 540
+            self.maxTopHeight = 540
+            self.minTopHeight = self.minTopHeight * 1.5
+            self.imageViewHeightConstant.constant = 380
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -111,16 +128,19 @@ class DetailPlaceViewController: UIViewController {
         
         self.commentsTableView.rowHeight = UITableView.automaticDimension
         NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePostCommentNotification), name: DidReceivePostCommentOccuredNotification, object: nil)
-        
+        self.commentsTableView.sectionIndexBackgroundColor = .gray
+
+        ifDeviceIpad()
         setLayers()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         
+        
         self.placeNameLabel?.text           = self.placeNameText
         self.categoryLabel?.text            = self.categoryText
-        self.ratingLabel?.text              = self.ratingText
-        self.addressLabel?.text             = self.addressText
+        self.ratingLabel?.text              = "\(self.ratingText ?? "") (\(String(self.commentsArray?.count ?? 0)))"
+        self.addressLabel?.text             = "\(self.addressText ?? "")"
         self.placeImageView?.image          = self.placeImage
         DispatchQueue.main.async {
             self.commentsTableView?.reloadData()
@@ -258,10 +278,35 @@ extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 170
     }
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerSectionView = UIView(frame: CGRect(x: 0, y: 0, width: ScreenSize.shared.screenWidth, height: 3))
-        headerSectionView.backgroundColor = .systemGray6
-        
-        return headerSectionView
+    
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5
     }
+    
+    
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // 최초의 y는 0
+        // 점점 커짐
+        let y = self.commentsTableView.contentOffset.y
+        let modifiedTopHeight: CGFloat = self.viewTopHeight.constant - y
+//        print(modifiedTopHeight)
+        if (modifiedTopHeight > minTopHeight) {
+            viewTopHeight.constant = maxTopHeight
+            // 아래는 stopLoading이 제대로 이루어지지 않는 오류를 처리하는 부분
+            Utils.shared.stopLoading(view: self.view, activityIndicator: self.activityIndicator)
+        
+        }
+        else if (modifiedTopHeight < minTopHeight) {
+            viewTopHeight.constant = minTopHeight
+        }
+        else {
+            viewTopHeight.constant = modifiedTopHeight
+            commentsTableView.contentOffset.y = 0
+        }
+    }
+    
+   
 }
