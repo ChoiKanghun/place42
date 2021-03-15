@@ -63,9 +63,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance()?.clientID = "944731256906-uer210vtvfg4r8nrsdjbirg6cvk4iirs.apps.googleusercontent.com"
         GIDSignIn.sharedInstance()?.delegate = self
         
-        
         // Firebase 초기화.
         FirebaseApp.configure()
+        
+        // 화면에 앱 이미지를 2초 동안 띄웁니다.
+        Thread.sleep(forTimeInterval: 2.0)
         return true
     }
 
@@ -84,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url)
     }
-
     
+
 }
 

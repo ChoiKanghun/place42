@@ -18,8 +18,6 @@ class DetailPlaceViewController: UIViewController {
     var placeImage: UIImage?
     var commentsArray: Array<(key: String, value: AnyObject)>?
     
-
-    
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
@@ -29,6 +27,9 @@ class DetailPlaceViewController: UIViewController {
     let tableViewCellIdentifier: String = "commentTableViewCell"
 
     let storage = Storage.storage()
+    
+    // 화면이 완전히 로딩되기 전까지 로딩 이미지를 표시함.
+    lazy var activityIndicator = Utils.shared.activityIndicator
     
     // 지도에서 위치 확인
     @IBAction func checkLocation(_ sender: UIButton) {
@@ -44,7 +45,6 @@ class DetailPlaceViewController: UIViewController {
             UIApplication.shared.open(URL(string:"https://m.map.naver.com/search2/search.naver?query=" + urlEncodedSring + "#/map")!, completionHandler: nil)
         }
         
-        self.navigationController?.popViewController(animated: true)
     }
     
     
@@ -53,6 +53,9 @@ class DetailPlaceViewController: UIViewController {
         
         self.commentsTableView.delegate     = self
         self.commentsTableView.dataSource   = self
+        
+        self.view.addSubview(self.activityIndicator)
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -79,7 +82,7 @@ class DetailPlaceViewController: UIViewController {
         
         guard let commentsArray = self.commentsArray
         else {
-            print("getting cmments array failure")
+            print("getting comments array failure")
             return
         }
         nextViewController.countOfComments = Double(commentsArray.count)
@@ -163,7 +166,10 @@ extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource 
                     print("unwrapping error")
                     return UITableViewCell()
                 }
+                
                 let imageReference = storageImagesReference.child("\(commentImageAddress)")
+                Utils.shared.startLoading(view: self.view, activityIndicator: self.activityIndicator)
+
                 imageReference.getData(maxSize: 10 * 1024 * 1024, completion: {
                     (data, error) in
                     if let error = error {
@@ -175,16 +181,17 @@ extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource 
                                 if cellIndex.row == indexPath.row {
                                     let image = UIImage(data: data!)
                                     cell.commentImageView?.image = image
-                                    cell.userIdLabel?.text = commentUserIdText
-                                    cell.commentLabel?.text = commentCommentText
-                                    cell.ratingLabel?.text =
-                                        String(commentRatingDouble)
                                     
+                                    Utils.shared.stopLoading(view: self.view, activityIndicator: self.activityIndicator)
                                 }
                             }
                         }
                     }
                 })
+                cell.userIdLabel?.text = commentUserIdText
+                cell.commentLabel?.text = commentCommentText
+                cell.ratingLabel?.text =
+                    String(commentRatingDouble)
                 
                 
             }

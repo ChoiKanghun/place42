@@ -29,6 +29,8 @@
 		7A9BC38725FC9D7B008D0148 /* UserOAuthInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC38625FC9D7B008D0148 /* UserOAuthInfo.swift */; };
 		7A9BC38B25FC9E29008D0148 /* CheckOauthLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC38A25FC9E29008D0148 /* CheckOauthLoginViewController.swift */; };
 		7A9BC38E25FD2855008D0148 /* OAuthLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC38D25FD2855008D0148 /* OAuthLoginViewController.swift */; };
+		7A9BC3F225FEFACE008D0148 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC3F125FEFACE008D0148 /* ScreenSize.swift */; };
+		7A9BC3F525FEFC98008D0148 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC3F425FEFC98008D0148 /* Utils.swift */; };
 		7AB910B925E9143D00D2AE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910B825E9143D00D2AE86 /* AppDelegate.swift */; };
 		7AB910BB25E9143D00D2AE86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */; };
 		7AB910BD25E9143D00D2AE86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910BC25E9143D00D2AE86 /* ViewController.swift */; };
@@ -67,6 +69,8 @@
 		7A9BC38625FC9D7B008D0148 /* UserOAuthInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOAuthInfo.swift; sourceTree = "<group>"; };
 		7A9BC38A25FC9E29008D0148 /* CheckOauthLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOauthLoginViewController.swift; sourceTree = "<group>"; };
 		7A9BC38D25FD2855008D0148 /* OAuthLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthLoginViewController.swift; sourceTree = "<group>"; };
+		7A9BC3F125FEFACE008D0148 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
+		7A9BC3F425FEFC98008D0148 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7AB910B525E9143D00D2AE86 /* place42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = place42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB910B825E9143D00D2AE86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 			children = (
 				7A9BC33825F24A3C008D0148 /* PlaceInfo.swift */,
 				7A9BC38625FC9D7B008D0148 /* UserOAuthInfo.swift */,
+				7A9BC3F125FEFACE008D0148 /* ScreenSize.swift */,
+				7A9BC3F425FEFC98008D0148 /* Utils.swift */,
 			);
 			path = swiftFiles;
 			sourceTree = "<group>";
@@ -336,6 +342,7 @@
 				7A9BC33125F1F5E4008D0148 /* PlaceTableViewCell.swift in Sources */,
 				7A9BC32925F0C776008D0148 /* GettingApiTableViewCell.swift in Sources */,
 				7A816F9F25EFB68A00C58852 /* GetImageViewController.swift in Sources */,
+				7A9BC3F525FEFC98008D0148 /* Utils.swift in Sources */,
 				7A9BC38E25FD2855008D0148 /* OAuthLoginViewController.swift in Sources */,
 				7A9BC33D25F35C54008D0148 /* CommentTableViewCell.swift in Sources */,
 				7AB910BD25E9143D00D2AE86 /* ViewController.swift in Sources */,
@@ -346,6 +353,7 @@
 				7A9BC34625F5B9C6008D0148 /* PlacesDataModel.swift in Sources */,
 				7A9BC38B25FC9E29008D0148 /* CheckOauthLoginViewController.swift in Sources */,
 				7A9BC34D25F78D64008D0148 /* PostCommentViewController.swift in Sources */,
+				7A9BC3F225FEFACE008D0148 /* ScreenSize.swift in Sources */,
 				7A09A64725EE6427004EE99D /* DatabaseViewController.swift in Sources */,
 				7A9BC33925F24A3C008D0148 /* PlaceInfo.swift in Sources */,
 				7A9BC32625F0C71F008D0148 /* GettingAPIsViewController.swift in Sources */,
