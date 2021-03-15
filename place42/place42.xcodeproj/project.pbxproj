@@ -23,7 +23,6 @@
 		7A9BC34325F5B91A008D0148 /* getPlaceInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC34225F5B91A008D0148 /* getPlaceInfoTableViewCell.swift */; };
 		7A9BC34625F5B9C6008D0148 /* PlacesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC34525F5B9C6008D0148 /* PlacesDataModel.swift */; };
 		7A9BC34D25F78D64008D0148 /* PostCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC34C25F78D63008D0148 /* PostCommentViewController.swift */; };
-		7A9BC35025FA50D1008D0148 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC34F25FA50D0008D0148 /* CustomUISlider.swift */; };
 		7A9BC36525FC7EDA008D0148 /* PlaceEnrollByManagersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC36425FC7EDA008D0148 /* PlaceEnrollByManagersViewController.swift */; };
 		7A9BC36825FC7F10008D0148 /* oAuthTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC36725FC7F10008D0148 /* oAuthTestViewController.swift */; };
 		7A9BC38725FC9D7B008D0148 /* UserOAuthInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC38625FC9D7B008D0148 /* UserOAuthInfo.swift */; };
@@ -31,6 +30,7 @@
 		7A9BC38E25FD2855008D0148 /* OAuthLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC38D25FD2855008D0148 /* OAuthLoginViewController.swift */; };
 		7A9BC3F225FEFACE008D0148 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC3F125FEFACE008D0148 /* ScreenSize.swift */; };
 		7A9BC3F525FEFC98008D0148 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC3F425FEFC98008D0148 /* Utils.swift */; };
+		7A9BC3FF25FFA1CC008D0148 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC3FE25FFA1CB008D0148 /* CustomUISlider.swift */; };
 		7AB910B925E9143D00D2AE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910B825E9143D00D2AE86 /* AppDelegate.swift */; };
 		7AB910BB25E9143D00D2AE86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */; };
 		7AB910BD25E9143D00D2AE86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910BC25E9143D00D2AE86 /* ViewController.swift */; };
@@ -63,7 +63,6 @@
 		7A9BC34225F5B91A008D0148 /* getPlaceInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getPlaceInfoTableViewCell.swift; sourceTree = "<group>"; };
 		7A9BC34525F5B9C6008D0148 /* PlacesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesDataModel.swift; sourceTree = "<group>"; };
 		7A9BC34C25F78D63008D0148 /* PostCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentViewController.swift; sourceTree = "<group>"; };
-		7A9BC34F25FA50D0008D0148 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
 		7A9BC36425FC7EDA008D0148 /* PlaceEnrollByManagersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceEnrollByManagersViewController.swift; sourceTree = "<group>"; };
 		7A9BC36725FC7F10008D0148 /* oAuthTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oAuthTestViewController.swift; sourceTree = "<group>"; };
 		7A9BC38625FC9D7B008D0148 /* UserOAuthInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOAuthInfo.swift; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		7A9BC38D25FD2855008D0148 /* OAuthLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthLoginViewController.swift; sourceTree = "<group>"; };
 		7A9BC3F125FEFACE008D0148 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		7A9BC3F425FEFC98008D0148 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		7A9BC3FE25FFA1CB008D0148 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
 		7AB910B525E9143D00D2AE86 /* place42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = place42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB910B825E9143D00D2AE86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +114,6 @@
 				7A9BC33425F1F620008D0148 /* DetailPlaceViewController.swift */,
 				7A9BC32C25F1F587008D0148 /* PlacesViewController.swift */,
 				7A9BC34C25F78D63008D0148 /* PostCommentViewController.swift */,
-				7A9BC34F25FA50D0008D0148 /* CustomUISlider.swift */,
 				7A9BC38D25FD2855008D0148 /* OAuthLoginViewController.swift */,
 			);
 			path = ViewControllers;
@@ -136,6 +135,7 @@
 				7A9BC38625FC9D7B008D0148 /* UserOAuthInfo.swift */,
 				7A9BC3F125FEFACE008D0148 /* ScreenSize.swift */,
 				7A9BC3F425FEFC98008D0148 /* Utils.swift */,
+				7A9BC3FE25FFA1CB008D0148 /* CustomUISlider.swift */,
 			);
 			path = swiftFiles;
 			sourceTree = "<group>";
@@ -347,7 +347,6 @@
 				7A9BC33D25F35C54008D0148 /* CommentTableViewCell.swift in Sources */,
 				7AB910BD25E9143D00D2AE86 /* ViewController.swift in Sources */,
 				7AB910B925E9143D00D2AE86 /* AppDelegate.swift in Sources */,
-				7A9BC35025FA50D1008D0148 /* CustomUISlider.swift in Sources */,
 				7A9BC32D25F1F587008D0148 /* PlacesViewController.swift in Sources */,
 				7AD6478A25EE1092009682DF /* MusicPlayerViewController.swift in Sources */,
 				7A9BC34625F5B9C6008D0148 /* PlacesDataModel.swift in Sources */,
@@ -363,6 +362,7 @@
 				7A9BC34025F5B8CD008D0148 /* getPlaceInfoViewController.swift in Sources */,
 				7A9BC36525FC7EDA008D0148 /* PlaceEnrollByManagersViewController.swift in Sources */,
 				7A9BC33525F1F620008D0148 /* DetailPlaceViewController.swift in Sources */,
+				7A9BC3FF25FFA1CC008D0148 /* CustomUISlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

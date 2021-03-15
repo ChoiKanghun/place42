@@ -18,7 +18,7 @@ class PostCommentViewController: UIViewController {
     
     @IBOutlet weak var userCommentImageView: UIImageView!
     @IBOutlet weak var commentTextView: UITextView!
-    @IBOutlet weak var timeSlider: UISlider!
+    @IBOutlet weak var starSlider: UISlider!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var userLoginEmailLabel: UILabel!
     
@@ -28,6 +28,7 @@ class PostCommentViewController: UIViewController {
         = UIAlertController(title: "id와 코멘트를 모두 채워주세요", message: "확인을 눌러주세요", preferredStyle: .alert)
     let imagePickerController = UIImagePickerController()
     var defaultImage: UIImage?
+    
     
     
     @IBAction func onDragStarSlider(_ sender: UISlider) {
@@ -110,11 +111,16 @@ class PostCommentViewController: UIViewController {
             return
         }
         self.userLoginEmailLabel?.text = userEmail
+        
         setDefaultImageAndAddGestureRecognizer()
         setPlaceholderOnTextView()
         enrollAlertEvent()
         enrollWarningAlert()
-
+        
+        self.starSlider.minimumTrackTintColor = .clear
+        self.starSlider.maximumTrackTintColor = .clear
+        self.starSlider.thumbTintColor = .clear
+        
     }
  
     func dateToString(_ date: Date) -> String {

@@ -69,8 +69,6 @@ class DetailPlaceViewController: UIViewController {
             self.commentsTableView?.reloadData()
         }
     }
-
-
     
     // MARK: - Navigation
 

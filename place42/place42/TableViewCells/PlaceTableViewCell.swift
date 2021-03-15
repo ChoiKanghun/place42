@@ -19,6 +19,12 @@ class PlaceTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        // tableViewCell 초기화 방법임.
+        // + 이미지 외곽을 둥글게 만듦.
+        // 정리해두기.
+        self.placeImageView.layer.cornerRadius = self.placeImageView.frame.width / 8
+        self.placeImageView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

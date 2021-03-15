@@ -43,16 +43,14 @@ class PlacesViewController: UIViewController {
         self.configureNavigation()
         
         self.placesTableView.addSubview(self.activityIndicator)
-        
+        self.placesTableView.rowHeight = UITableView.automaticDimension
         getPlaceInfo()
-    }
-   
-    func setView() {
         self.placesTableView.frame
             = CGRect(x: 0, y: 0, width: ScreenSize.shared.screenWidth, height: ScreenSize.shared.screenHeight)
         
-        
     }
+   
+   
     func configureNavigation()  {
            self.navigationItem.title = "42 Places"
            self.navigationController?.navigationBar.barTintColor = .black
@@ -106,9 +104,9 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
+        Utils.shared.startLoading(view: self.view, activityIndicator: self.activityIndicator)
         for index in 0..<placesDataArray.count {
             if index == indexPath.row {
-                self.activityIndicator.startAnimating()
                 let place = placesDataArray[index]
                 print(place)
                 guard let addressLabelText = place.value["address_korean"]
@@ -140,8 +138,7 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
                         cell.placeNameLabel?.text = placeNameLabelText
                         cell.categoryLabel?.text = categoryLabelText
                         cell.ratingLabel?.text = String(ratingLabelRawValue)
-                        self.activityIndicator.stopAnimating()
-
+                        Utils.shared.stopLoading(view: self.view, activityIndicator: self.activityIndicator)
                     }
                 })
                 
@@ -152,11 +149,10 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     // 각 tableViewCell의 높이
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // 셀 하나는 화면의 1/5 높이.
-        return (ScreenSize.shared.screenHeight / 5)
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 130
     }
-
+    
     // 각 cell을 클릭했을 때에 대한 처리
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -194,7 +190,7 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
                             nextViewController.categoryText = cell.categoryLabel?.text
                             nextViewController.placeImage = cell.placeImageView?.image
                             PlaceInfo.shared.placeKey = place.key
-                // placeKey는 PostCommentViewController에서 씀.
+                        // placeKey는 PostCommentViewController에서 씀.
                             self.navigationController?.pushViewController(nextViewController, animated: true)
                         }
                     }
@@ -202,10 +198,10 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
                         print("storyBoard instantiating failure")
                         return
                     }
-                    
                 })
             }
         }
         
     }
+    
 }
