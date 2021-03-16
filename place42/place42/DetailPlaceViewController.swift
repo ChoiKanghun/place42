@@ -43,6 +43,10 @@ class DetailPlaceViewController: UIViewController {
     var maxTopHeight: CGFloat = 380
     var minTopHeight: CGFloat = 50
     
+    @IBAction func touchUpImageView(_ sender: UITapGestureRecognizer) {
+        self.viewTopHeight.constant = maxTopHeight
+        print("clicked")
+    }
     
     // 지도에서 위치 확인
     @IBAction func checkLocation(_ sender: UIButton) {
@@ -175,7 +179,9 @@ class DetailPlaceViewController: UIViewController {
 extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        guard let cell: CommentTableViewCell = self.commentsTableView.dequeueReusableCell(withIdentifier: self.tableViewCellIdentifier) as? CommentTableViewCell
+        else {return}
+        cell.isSelected = false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
