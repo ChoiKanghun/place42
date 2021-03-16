@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
 
 class DetailPlaceViewController: UIViewController {
@@ -45,7 +46,6 @@ class DetailPlaceViewController: UIViewController {
     
     @IBAction func touchUpImageView(_ sender: UITapGestureRecognizer) {
         self.viewTopHeight.constant = maxTopHeight
-        print("clicked")
     }
     
     // 지도에서 위치 확인
@@ -248,11 +248,12 @@ extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource 
                     return UITableViewCell()
                 }
                 
-                let imageReference = storageImagesReference.child("\(commentImageAddress)")
                 Utils.shared.startLoading(view: self.view, activityIndicator: self.activityIndicator)
+                
+                let imageReference = storageImagesReference.child("\(commentImageAddress)")
 
-                imageReference.getData(maxSize: 10 * 1024 * 1024, completion: {
-                    (data, error) in
+                imageReference.downloadURL {
+                    (url, error) in
                     if let error = error {
                         print(error)
                     }
@@ -260,15 +261,32 @@ extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource 
                         DispatchQueue.main.async {
                             if let cellIndex: IndexPath = self.commentsTableView.indexPath(for: cell) {
                                 if cellIndex.row == indexPath.row {
-                                    let image = UIImage(data: data!)
-                                    cell.commentImageView?.image = image
-                                    
+                                    cell.commentImageView.sd_setImage(with: url!, completed: nil)
                                     Utils.shared.stopLoading(view: self.view, activityIndicator: self.activityIndicator)
                                 }
                             }
                         }
                     }
-                })
+                }
+//                cell.commentImageView.sd_setImage(with: imageReference, placeholderImage: nil, options: nil, context: nil)
+//                imageReference.getData(maxSize: 10 * 1024 * 1024, completion: {
+//                    (data, error) in
+//                    if let error = error {
+//                        print(error)
+//                    }
+//                    else {
+//                        DispatchQueue.main.async {
+//                            if let cellIndex: IndexPath = self.commentsTableView.indexPath(for: cell) {
+//                                if cellIndex.row == indexPath.row {
+//                                    let image = UIImage(data: data!)
+//                                    cell.commentImageView?.image = image
+//
+//                                    Utils.shared.stopLoading(view: self.view, activityIndicator: self.activityIndicator)
+//                                }
+//                            }
+//                        }
+//                    }
+//                })
                 cell.userIdLabel?.text = commentUserIdText
                 cell.commentLabel?.text = commentCommentText
                 cell.ratingLabel?.text =
