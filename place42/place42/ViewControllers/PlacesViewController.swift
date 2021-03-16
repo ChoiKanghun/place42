@@ -127,23 +127,26 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
                         as? String
                 else {return UITableViewCell()}
                 let imageReference = storageImagesReference.child("\(imageAddress)")
-//                print("imageAddress: \(imageAddress)")
-                imageReference.getData(maxSize: 10 * 1024 * 1024, completion: {
-                    (data, error) in
+                imageReference.downloadURL {
+                    (url, error) in
                     if let error = error {
                         print(error)
                     }
                     else {
-                        let image = UIImage(data: data!)
-                        cell.placeImageView?.image = image
-                        cell.addressLabel?.text = addressLabelText
-                        cell.placeNameLabel?.text = placeNameLabelText
-                        cell.categoryLabel?.text = categoryLabelText
-                        cell.ratingLabel?.text = String(ratingLabelRawValue)
-                        Utils.shared.stopLoading(view: self.view, activityIndicator: self.activityIndicator)
+                        DispatchQueue.main.async {
+                            if let cellIndex: IndexPath = self.placesTableView.indexPath(for: cell) {
+                                if cellIndex.row == indexPath.row {
+                                    cell.placeImageView.sd_setImage(with: url!, completed: nil)
+                                    Utils.shared.stopLoading(view: self.view, activityIndicator: self.activityIndicator)
+                                }
+                            }
+                        }
                     }
-                })
-                
+                }
+                cell.addressLabel?.text = addressLabelText
+                cell.placeNameLabel?.text = placeNameLabelText
+                cell.categoryLabel?.text = categoryLabelText
+                cell.ratingLabel?.text = String(ratingLabelRawValue)
             }
             
         }

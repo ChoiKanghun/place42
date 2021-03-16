@@ -268,25 +268,6 @@ extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource 
                         }
                     }
                 }
-//                cell.commentImageView.sd_setImage(with: imageReference, placeholderImage: nil, options: nil, context: nil)
-//                imageReference.getData(maxSize: 10 * 1024 * 1024, completion: {
-//                    (data, error) in
-//                    if let error = error {
-//                        print(error)
-//                    }
-//                    else {
-//                        DispatchQueue.main.async {
-//                            if let cellIndex: IndexPath = self.commentsTableView.indexPath(for: cell) {
-//                                if cellIndex.row == indexPath.row {
-//                                    let image = UIImage(data: data!)
-//                                    cell.commentImageView?.image = image
-//
-//                                    Utils.shared.stopLoading(view: self.view, activityIndicator: self.activityIndicator)
-//                                }
-//                            }
-//                        }
-//                    }
-//                })
                 cell.userIdLabel?.text = commentUserIdText
                 cell.commentLabel?.text = commentCommentText
                 cell.ratingLabel?.text =
@@ -316,7 +297,7 @@ extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource 
         // 점점 커짐
         let y = self.commentsTableView.contentOffset.y
         let modifiedTopHeight: CGFloat = self.viewTopHeight.constant - y
-//        print(modifiedTopHeight)
+//     print(modifiedTopHeight)
         if (modifiedTopHeight > minTopHeight) {
             viewTopHeight.constant = maxTopHeight
             // 아래는 stopLoading이 제대로 이루어지지 않는 오류를 처리하는 부분
