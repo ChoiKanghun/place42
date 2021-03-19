@@ -49,7 +49,6 @@ class PlacesViewController: UIViewController {
         self.placesTableView.frame
             = CGRect(x: 0, y: 0, width: ScreenSize.shared.screenWidth, height: ScreenSize.shared.screenHeight)
         self.placesTableView.backgroundColor = .white
-        
     }
    
    
@@ -110,7 +109,7 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
         for index in 0..<placesDataArray.count {
             if index == indexPath.row {
                 let place = placesDataArray[index]
-                print(place)
+//                print(place)
                 guard let addressLabelText = place.value["address_korean"]
                         as? String
                 else {return UITableViewCell()}
@@ -180,7 +179,7 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
                 let place = placesDataArray[index]
 //                print(place.key) // place의 key를 얻어올 수 있다.
 //                print(type(of: place.key))
-                self.ref.child("places/\(place.key)/user_comments").observeSingleEvent(of: .value, andPreviousSiblingKeyWith: { (snapshot, error) in
+                self.ref.child("places/\(place.key)/user_comments").queryOrderedByKey().observeSingleEvent(of: .value, andPreviousSiblingKeyWith: { (snapshot, error) in
 //                    print(snapshot)
                     let commentsInfo = snapshot.value as? [String:AnyObject] ?? [:]
                     let commentsInfoArray = Array(commentsInfo)

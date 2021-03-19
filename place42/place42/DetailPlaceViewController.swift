@@ -46,6 +46,7 @@ class DetailPlaceViewController: UIViewController {
     
     @IBAction func touchUpImageView(_ sender: UITapGestureRecognizer) {
         self.viewTopHeight.constant = maxTopHeight
+        self.commentsTableView.contentOffset.y = 0
     }
     
     // 지도에서 위치 확인
@@ -179,9 +180,38 @@ class DetailPlaceViewController: UIViewController {
 extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell: CommentTableViewCell = self.commentsTableView.dequeueReusableCell(withIdentifier: self.tableViewCellIdentifier) as? CommentTableViewCell
-        else {return}
+        guard let cell = self.commentsTableView.cellForRow(at: indexPath) as? CommentTableViewCell
+        else {
+            print("can't get indexPath's cell")
+            return
+        }
         cell.isSelected = false
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        if let nextViewController = storyBoard.instantiateViewController(identifier: "CommentDetailViewController") as? CommentDetailViewController {
+            DispatchQueue.main.async {
+                guard let ratingText = cell.ratingLabel.text
+                else {
+                    print("cannot convert ratingLabelText -> ratingText")
+                    return
+                }
+                guard let rating = Float(ratingText)
+                else {
+                    print("cannot covnert ratingText -> rating")
+                    return
+                }
+                
+                nextViewController.image = cell.commentImageView?.image
+                nextViewController.sliderValue =
+                    rating
+                nextViewController.commentLabelText =
+                    cell.commentLabel?.text
+                nextViewController.userLabelText =
+                    cell.userIdLabel?.text
+            // placeKey는 PostCommentViewController에서 씀.
+                self.navigationController?.pushViewController(nextViewController, animated: true)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -293,7 +323,6 @@ extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource 
     
     
 }
-
 
 extension DetailPlaceViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

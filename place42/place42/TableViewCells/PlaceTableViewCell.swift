@@ -25,6 +25,7 @@ class PlaceTableViewCell: UITableViewCell {
         // 정리해두기.
         self.placeImageView.layer.cornerRadius = self.placeImageView.frame.width / 8
         self.placeImageView.clipsToBounds = true
+        self.addressLabel.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -11,6 +11,8 @@
 		7A09A64925EF69D3004EE99D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A09A64825EF69D3004EE99D /* GoogleService-Info.plist */; };
 		7A09A64B25EF8734004EE99D /* AlbumImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A09A64A25EF8734004EE99D /* AlbumImageCollectionViewCell.swift */; };
 		7A09A64D25EF89C8004EE99D /* ImagePickingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A09A64C25EF89C8004EE99D /* ImagePickingViewController.swift */; };
+		7A320E9C2600A53200DE1F90 /* CommentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A320E9B2600A53200DE1F90 /* CommentDetailViewController.swift */; };
+		7A320EA82600CC5C00DE1F90 /* 42PlacesLauchScreenImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A320EA72600CC5C00DE1F90 /* 42PlacesLauchScreenImage.png */; };
 		7A816F9F25EFB68A00C58852 /* GetImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A816F9E25EFB68A00C58852 /* GetImageViewController.swift */; };
 		7A9BC32625F0C71F008D0148 /* GettingAPIsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC32525F0C71F008D0148 /* GettingAPIsViewController.swift */; };
 		7A9BC32925F0C776008D0148 /* GettingApiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC32825F0C776008D0148 /* GettingApiTableViewCell.swift */; };
@@ -51,6 +53,8 @@
 		7A09A64825EF69D3004EE99D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7A09A64A25EF8734004EE99D /* AlbumImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A09A64C25EF89C8004EE99D /* ImagePickingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickingViewController.swift; sourceTree = "<group>"; };
+		7A320E9B2600A53200DE1F90 /* CommentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDetailViewController.swift; sourceTree = "<group>"; };
+		7A320EA72600CC5C00DE1F90 /* 42PlacesLauchScreenImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 42PlacesLauchScreenImage.png; sourceTree = "<group>"; };
 		7A816F9E25EFB68A00C58852 /* GetImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageViewController.swift; sourceTree = "<group>"; };
 		7A9BC32525F0C71F008D0148 /* GettingAPIsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingAPIsViewController.swift; sourceTree = "<group>"; };
 		7A9BC32825F0C776008D0148 /* GettingApiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingApiTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 				7A9BC32C25F1F587008D0148 /* PlacesViewController.swift */,
 				7A9BC34C25F78D63008D0148 /* PostCommentViewController.swift */,
 				7A9BC38D25FD2855008D0148 /* OAuthLoginViewController.swift */,
+				7A320E9B2600A53200DE1F90 /* CommentDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				7AB910B825E9143D00D2AE86 /* AppDelegate.swift */,
 				7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */,
 				7AB910BC25E9143D00D2AE86 /* ViewController.swift */,
+				7A320EA72600CC5C00DE1F90 /* 42PlacesLauchScreenImage.png */,
 				7A09A64625EE6427004EE99D /* DatabaseViewController.swift */,
 				7A09A64A25EF8734004EE99D /* AlbumImageCollectionViewCell.swift */,
 				7A816F9E25EFB68A00C58852 /* GetImageViewController.swift */,
@@ -177,10 +183,10 @@
 				7A9BC32525F0C71F008D0148 /* GettingAPIsViewController.swift */,
 				7A9BC32825F0C776008D0148 /* GettingApiTableViewCell.swift */,
 				7AD6478925EE1092009682DF /* MusicPlayerViewController.swift */,
-				7AB910C125E9143D00D2AE86 /* Assets.xcassets */,
 				7A09A64825EF69D3004EE99D /* GoogleService-Info.plist */,
 				7AD6478B25EE2B06009682DF /* all-night-long.mp3 */,
 				7AB910C325E9143D00D2AE86 /* LaunchScreen.storyboard */,
+				7AB910C125E9143D00D2AE86 /* Assets.xcassets */,
 				7AB910C625E9143D00D2AE86 /* Info.plist */,
 				7A9BC33F25F5B8CD008D0148 /* getPlaceInfoViewController.swift */,
 				7A9BC34525F5B9C6008D0148 /* PlacesDataModel.swift */,
@@ -263,6 +269,7 @@
 				7AB910C525E9143D00D2AE86 /* LaunchScreen.storyboard in Resources */,
 				7AD6478C25EE2B06009682DF /* all-night-long.mp3 in Resources */,
 				7A09A64925EF69D3004EE99D /* GoogleService-Info.plist in Resources */,
+				7A320EA82600CC5C00DE1F90 /* 42PlacesLauchScreenImage.png in Resources */,
 				7AB910C225E9143D00D2AE86 /* Assets.xcassets in Resources */,
 				7AB910C025E9143D00D2AE86 /* Main.storyboard in Resources */,
 			);
@@ -353,6 +360,7 @@
 				7A9BC38B25FC9E29008D0148 /* CheckOauthLoginViewController.swift in Sources */,
 				7A9BC34D25F78D64008D0148 /* PostCommentViewController.swift in Sources */,
 				7A9BC3F225FEFACE008D0148 /* ScreenSize.swift in Sources */,
+				7A320E9C2600A53200DE1F90 /* CommentDetailViewController.swift in Sources */,
 				7A09A64725EE6427004EE99D /* DatabaseViewController.swift in Sources */,
 				7A9BC33925F24A3C008D0148 /* PlaceInfo.swift in Sources */,
 				7A9BC32625F0C71F008D0148 /* GettingAPIsViewController.swift in Sources */,
