@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yOD-Zj-0BH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iYB-1g-ep3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -146,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y2j-fY-7p2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3778.2608695652175" y="837.72321428571422"/>
+            <point key="canvasLocation" x="4688.4057971014499" y="837.72321428571422"/>
         </scene>
         <!--Get Image View Controller-->
         <scene sceneID="LFq-qH-hL2">
@@ -185,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gps-ft-QMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1957.9710144927537" y="1622.5446428571429"/>
+            <point key="canvasLocation" x="2868.115942028986" y="1622.5446428571429"/>
         </scene>
         <!--Get Place Info View Controller-->
         <scene sceneID="6ur-ki-rMF">
@@ -238,22 +238,154 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lcL-Or-Av1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1147.8260869565217" y="1236.8303571428571"/>
+            <point key="canvasLocation" x="-237.68115942028987" y="1236.8303571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--App Push Notification View Controller-->
         <scene sceneID="MZ2-iW-gaG">
             <objects>
-                <viewController id="l4i-Jc-iK8" sceneMemberID="viewController">
+                <viewController id="l4i-Jc-iK8" customClass="AppPushNotificationViewController" customModule="place42" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z0R-yr-WDv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="키워드 입력" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aMJ-75-FXA">
+                                <rect key="frame" x="157" y="328" width="100" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="A8k-lv-CVh"/>
+                                    <constraint firstAttribute="height" constant="40" id="t9c-oA-zdc"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lo7-3D-aZd">
+                                <rect key="frame" x="0.0" y="288" width="414" height="30"/>
+                                <state key="normal" title="키워드 등록"/>
+                                <connections>
+                                    <action selector="touchUpButton:" destination="l4i-Jc-iK8" eventType="touchUpInside" id="DST-AO-xFF"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gGM-Gj-dcO">
+                                <rect key="frame" x="57" y="388" width="300" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="f3E-07-9ts"/>
+                                    <constraint firstAttribute="height" constant="150" id="rBf-0t-2TU"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AZV-kW-eza">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AppPushCollectionViewCell" id="9sE-k8-p3j" customClass="AppPushCollectionViewCell" customModule="place42" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="11" width="41.5" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aVr-hd-SD4">
+                                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPf-Z9-EDB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                                    <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" staticText="YES" adjustable="YES"/>
+                                                    </accessibility>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sPf-Z9-EDB" firstAttribute="top" secondItem="aVr-hd-SD4" secondAttribute="top" id="EuS-Lx-Ybh"/>
+                                                <constraint firstItem="sPf-Z9-EDB" firstAttribute="leading" secondItem="aVr-hd-SD4" secondAttribute="leading" id="XHz-Nd-nxv"/>
+                                                <constraint firstAttribute="trailing" secondItem="sPf-Z9-EDB" secondAttribute="trailing" id="yu9-Rr-JgU"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="keywordLabel" destination="sPf-Z9-EDB" id="D8x-or-MHi"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="LxP-WQ-w8J"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LxP-WQ-w8J" firstAttribute="trailing" secondItem="Lo7-3D-aZd" secondAttribute="trailing" id="4Gu-QP-p1G"/>
+                            <constraint firstItem="aMJ-75-FXA" firstAttribute="top" secondItem="Lo7-3D-aZd" secondAttribute="bottom" constant="10" id="Bk7-UF-yg4"/>
+                            <constraint firstItem="gGM-Gj-dcO" firstAttribute="top" secondItem="aMJ-75-FXA" secondAttribute="bottom" constant="20" id="HQf-d1-hH8"/>
+                            <constraint firstItem="aMJ-75-FXA" firstAttribute="centerX" secondItem="z0R-yr-WDv" secondAttribute="centerX" id="LKD-I4-nxj"/>
+                            <constraint firstItem="gGM-Gj-dcO" firstAttribute="centerX" secondItem="z0R-yr-WDv" secondAttribute="centerX" id="YVP-0h-qsE"/>
+                            <constraint firstItem="Lo7-3D-aZd" firstAttribute="leading" secondItem="LxP-WQ-w8J" secondAttribute="leading" id="wVu-E8-bhD"/>
+                            <constraint firstItem="Lo7-3D-aZd" firstAttribute="top" secondItem="LxP-WQ-w8J" secondAttribute="top" constant="200" id="ycI-gH-ZR1"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="uNe-cf-Eeq">
+                        <barButtonItem key="rightBarButtonItem" title="상뭄 등록" id="7bY-wD-b4v">
+                            <connections>
+                                <segue destination="zcd-hM-CFm" kind="show" id="G5F-Q8-ZW8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="gGM-Gj-dcO" id="Dgl-cg-Rp1"/>
+                        <outlet property="keywordInputTextField" destination="aMJ-75-FXA" id="w2i-qn-Xpm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82H-ZZ-7D8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2728" y="1058"/>
+            <point key="canvasLocation" x="-3349" y="1978"/>
+        </scene>
+        <!--App Push Test Second View Controller-->
+        <scene sceneID="FTZ-nc-dw9">
+            <objects>
+                <viewController id="zcd-hM-CFm" customClass="AppPushTestSecondViewController" customModule="place42" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JWV-RK-u4u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0jm-fe-7NG">
+                                <rect key="frame" x="10" y="182" width="394" height="670"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="제목을 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oGm-Xl-gdT">
+                                <rect key="frame" x="10" y="118" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TRk-Iq-ad2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TRk-Iq-ad2" firstAttribute="trailing" secondItem="0jm-fe-7NG" secondAttribute="trailing" constant="10" id="0xB-IZ-2dY"/>
+                            <constraint firstItem="0jm-fe-7NG" firstAttribute="top" secondItem="oGm-Xl-gdT" secondAttribute="bottom" constant="30" id="5rg-d3-eyn"/>
+                            <constraint firstItem="oGm-Xl-gdT" firstAttribute="top" secondItem="TRk-Iq-ad2" secondAttribute="top" constant="30" id="Pgc-lt-37u"/>
+                            <constraint firstItem="TRk-Iq-ad2" firstAttribute="trailing" secondItem="oGm-Xl-gdT" secondAttribute="trailing" constant="10" id="SbY-7W-Y3j"/>
+                            <constraint firstItem="oGm-Xl-gdT" firstAttribute="leading" secondItem="TRk-Iq-ad2" secondAttribute="leading" constant="10" id="XAF-5w-TBQ"/>
+                            <constraint firstItem="TRk-Iq-ad2" firstAttribute="bottom" secondItem="0jm-fe-7NG" secondAttribute="bottom" constant="10" id="pWt-o9-8dV"/>
+                            <constraint firstItem="0jm-fe-7NG" firstAttribute="leading" secondItem="TRk-Iq-ad2" secondAttribute="leading" constant="10" id="vRU-qj-eal"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gZM-Q3-rad">
+                        <barButtonItem key="rightBarButtonItem" title="상품 등록" id="RbE-PP-MvU">
+                            <connections>
+                                <action selector="touchUpEnrollGoodsButton:" destination="zcd-hM-CFm" id="0Zr-Xy-3Co"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="oGm-Xl-gdT" id="qfs-fP-9vg"/>
+                        <outlet property="textView" destination="0jm-fe-7NG" id="png-Mm-FRl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vGa-2A-EMu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2616" y="1977"/>
         </scene>
         <!--Image Picking View Controller-->
         <scene sceneID="yfx-F2-NCs">
@@ -317,7 +449,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Pk-Eo-skb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1021.7391304347827" y="1544.8660714285713"/>
+            <point key="canvasLocation" x="1931.8840579710147" y="1544.8660714285713"/>
         </scene>
         <!--Places View Controller-->
         <scene sceneID="LtR-Hi-Vfs">
@@ -1134,7 +1266,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F5F-pa-Jba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2868.115942028986" y="837.72321428571422"/>
+            <point key="canvasLocation" x="3778.2608695652175" y="837.72321428571422"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="98B-iX-sFD">
@@ -1170,7 +1302,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wau-Tg-Jvn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2057.971014492754" y="1236.8303571428571"/>
+            <point key="canvasLocation" x="-1149.2753623188407" y="1236.8303571428571"/>
         </scene>
         <!--Place Enroll By Managers View Controller-->
         <scene sceneID="UhX-eV-KsP">
@@ -1376,6 +1508,24 @@
             </objects>
             <point key="canvasLocation" x="2491.304347826087" y="3487.5"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pnz-tD-ENW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iYB-1g-ep3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HAV-7m-p5Z">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="l4i-Jc-iK8" kind="relationship" relationship="rootViewController" id="qsM-Pt-jNK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vci-cv-L9d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3349.275362318841" y="1236.8303571428571"/>
+        </scene>
     </scenes>
     <resources>
         <image name="default_marker.png" width="26" height="41"/>
@@ -1391,6 +1541,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

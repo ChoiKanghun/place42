@@ -319,9 +319,6 @@ extension DetailPlaceViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 5
     }
-    
-    
-    
 }
 
 extension DetailPlaceViewController: UIScrollViewDelegate {

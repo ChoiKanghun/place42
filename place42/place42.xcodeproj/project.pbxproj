@@ -13,6 +13,10 @@
 		7A09A64D25EF89C8004EE99D /* ImagePickingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A09A64C25EF89C8004EE99D /* ImagePickingViewController.swift */; };
 		7A320E9C2600A53200DE1F90 /* CommentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A320E9B2600A53200DE1F90 /* CommentDetailViewController.swift */; };
 		7A320EA82600CC5C00DE1F90 /* 42PlacesLauchScreenImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A320EA72600CC5C00DE1F90 /* 42PlacesLauchScreenImage.png */; };
+		7A320ECC2608857600DE1F90 /* AppPushNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A320ECB2608857600DE1F90 /* AppPushNotificationViewController.swift */; };
+		7A320ED22609BA8E00DE1F90 /* AppPushCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A320ED12609BA8E00DE1F90 /* AppPushCollectionViewCell.swift */; };
+		7A320ED72609BC5F00DE1F90 /* TestSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A320ED62609BC5F00DE1F90 /* TestSingleton.swift */; };
+		7A679EA92609C6ED00793904 /* AppPushTestSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A679EA82609C6ED00793904 /* AppPushTestSecondViewController.swift */; };
 		7A816F9F25EFB68A00C58852 /* GetImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A816F9E25EFB68A00C58852 /* GetImageViewController.swift */; };
 		7A9BC32625F0C71F008D0148 /* GettingAPIsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC32525F0C71F008D0148 /* GettingAPIsViewController.swift */; };
 		7A9BC32925F0C776008D0148 /* GettingApiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC32825F0C776008D0148 /* GettingApiTableViewCell.swift */; };
@@ -55,6 +59,11 @@
 		7A09A64C25EF89C8004EE99D /* ImagePickingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickingViewController.swift; sourceTree = "<group>"; };
 		7A320E9B2600A53200DE1F90 /* CommentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDetailViewController.swift; sourceTree = "<group>"; };
 		7A320EA72600CC5C00DE1F90 /* 42PlacesLauchScreenImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 42PlacesLauchScreenImage.png; sourceTree = "<group>"; };
+		7A320ECB2608857600DE1F90 /* AppPushNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPushNotificationViewController.swift; sourceTree = "<group>"; };
+		7A320ECE2608898B00DE1F90 /* place42.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = place42.entitlements; sourceTree = "<group>"; };
+		7A320ED12609BA8E00DE1F90 /* AppPushCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPushCollectionViewCell.swift; sourceTree = "<group>"; };
+		7A320ED62609BC5F00DE1F90 /* TestSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSingleton.swift; sourceTree = "<group>"; };
+		7A679EA82609C6ED00793904 /* AppPushTestSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPushTestSecondViewController.swift; sourceTree = "<group>"; };
 		7A816F9E25EFB68A00C58852 /* GetImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageViewController.swift; sourceTree = "<group>"; };
 		7A9BC32525F0C71F008D0148 /* GettingAPIsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingAPIsViewController.swift; sourceTree = "<group>"; };
 		7A9BC32825F0C776008D0148 /* GettingApiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingApiTableViewCell.swift; sourceTree = "<group>"; };
@@ -166,18 +175,23 @@
 		7AB910B725E9143D00D2AE86 /* place42 */ = {
 			isa = PBXGroup;
 			children = (
+				7A320ECE2608898B00DE1F90 /* place42.entitlements */,
 				7A9BC33725F24A26008D0148 /* swiftFiles */,
 				7A9BC32F25F1F5D0008D0148 /* TableViewCells */,
 				7A9BC32B25F1F54F008D0148 /* ViewControllers */,
 				7AB910B825E9143D00D2AE86 /* AppDelegate.swift */,
 				7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */,
+				7A320ED62609BC5F00DE1F90 /* TestSingleton.swift */,
 				7AB910BC25E9143D00D2AE86 /* ViewController.swift */,
 				7A320EA72600CC5C00DE1F90 /* 42PlacesLauchScreenImage.png */,
+				7A320ED12609BA8E00DE1F90 /* AppPushCollectionViewCell.swift */,
 				7A09A64625EE6427004EE99D /* DatabaseViewController.swift */,
 				7A09A64A25EF8734004EE99D /* AlbumImageCollectionViewCell.swift */,
 				7A816F9E25EFB68A00C58852 /* GetImageViewController.swift */,
 				7A09A64C25EF89C8004EE99D /* ImagePickingViewController.swift */,
 				7AB910BE25E9143D00D2AE86 /* Main.storyboard */,
+				7A320ECB2608857600DE1F90 /* AppPushNotificationViewController.swift */,
+				7A679EA82609C6ED00793904 /* AppPushTestSecondViewController.swift */,
 				7AD647AD25EE4CFD009682DF /* GooglePlacesViewController.swift */,
 				7AD6478725ED1E7A009682DF /* MusicPlayer.swift */,
 				7A9BC32525F0C71F008D0148 /* GettingAPIsViewController.swift */,
@@ -343,8 +357,10 @@
 			files = (
 				7A9BC36825FC7F10008D0148 /* oAuthTestViewController.swift in Sources */,
 				7A09A64B25EF8734004EE99D /* AlbumImageCollectionViewCell.swift in Sources */,
+				7A320ED22609BA8E00DE1F90 /* AppPushCollectionViewCell.swift in Sources */,
 				7A9BC38725FC9D7B008D0148 /* UserOAuthInfo.swift in Sources */,
 				7AD647AE25EE4CFD009682DF /* GooglePlacesViewController.swift in Sources */,
+				7A320ECC2608857600DE1F90 /* AppPushNotificationViewController.swift in Sources */,
 				7A09A64D25EF89C8004EE99D /* ImagePickingViewController.swift in Sources */,
 				7A9BC33125F1F5E4008D0148 /* PlaceTableViewCell.swift in Sources */,
 				7A9BC32925F0C776008D0148 /* GettingApiTableViewCell.swift in Sources */,
@@ -352,6 +368,7 @@
 				7A9BC3F525FEFC98008D0148 /* Utils.swift in Sources */,
 				7A9BC38E25FD2855008D0148 /* OAuthLoginViewController.swift in Sources */,
 				7A9BC33D25F35C54008D0148 /* CommentTableViewCell.swift in Sources */,
+				7A320ED72609BC5F00DE1F90 /* TestSingleton.swift in Sources */,
 				7AB910BD25E9143D00D2AE86 /* ViewController.swift in Sources */,
 				7AB910B925E9143D00D2AE86 /* AppDelegate.swift in Sources */,
 				7A9BC32D25F1F587008D0148 /* PlacesViewController.swift in Sources */,
@@ -362,6 +379,7 @@
 				7A9BC3F225FEFACE008D0148 /* ScreenSize.swift in Sources */,
 				7A320E9C2600A53200DE1F90 /* CommentDetailViewController.swift in Sources */,
 				7A09A64725EE6427004EE99D /* DatabaseViewController.swift in Sources */,
+				7A679EA92609C6ED00793904 /* AppPushTestSecondViewController.swift in Sources */,
 				7A9BC33925F24A3C008D0148 /* PlaceInfo.swift in Sources */,
 				7A9BC32625F0C71F008D0148 /* GettingAPIsViewController.swift in Sources */,
 				7A9BC34325F5B91A008D0148 /* getPlaceInfoTableViewCell.swift in Sources */,
@@ -515,6 +533,7 @@
 			baseConfigurationReference = 39AD3AF2F900CDE7E877ABC5 /* Pods-place42.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = place42/place42.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VWY286867X;
 				INFOPLIST_FILE = place42/Info.plist;
@@ -534,6 +553,7 @@
 			baseConfigurationReference = 9F2CF72CECA7F0FFDC61903F /* Pods-place42.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = place42/place42.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VWY286867X;
 				INFOPLIST_FILE = place42/Info.plist;

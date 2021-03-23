@@ -65,10 +65,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Firebase 초기화.
         FirebaseApp.configure()
         
-        // 화면에 앱 이미지를 2초 동안 띄웁니다.
-        Thread.sleep(forTimeInterval: 2.0)
+        // 화면에 앱 이미지를 1초 동안 띄웁니다.
+        Thread.sleep(forTimeInterval: 1.0)
+        
+        // 앱 푸쉬 알림
+        UNUserNotificationCenter.current().delegate = self
+        
+        application.registerForRemoteNotifications()
+        
         return true
     }
+    // 앱 푸시 등록 실패시
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register for notifications: \(error.localizedDescription)")
+    }
+    // 앱 푸시 등록 성공 시
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenParts = deviceToken.map{data in String(format:"%02.2hhx", data)}
+        let token = tokenParts.joined()
+        print("Device token: \(token)")
+    }
+    
 
     // MARK: UISceneSession Lifecycle
 
@@ -87,5 +104,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
     
 
+    
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+}
