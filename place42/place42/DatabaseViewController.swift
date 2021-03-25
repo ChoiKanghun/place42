@@ -8,37 +8,67 @@
 
 import UIKit
 import FirebaseDatabase
+import Firebase
 import Photos
+import CodableFirebase
 
 class DatabaseViewController: UIViewController, UICollectionViewDelegate {
-//    var ref: DatabaseReference!
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        ref = Database.database().reference()
-//        self.ref.child("places/개포동 사보르/comment_sujilee").setValue([
-//            "user_id":"sujilee",
-//             "comment":"맛있어요",
-//             "rating":3.2
-//            ])
-//        sleep(1)
-//
-//
-//        self.ref.child("places").child("개포동 사보르").getData { (error, snapshot) in
+    var ref: DatabaseReference!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        ref = Database.database().reference()
+
+//        // getting one comment
+//        self.ref.child("places").child("autoid2").child("user_comments").child("test").getData { (error, snapshot) in
 //            if let error = error {
 //                print("Error getting data \(error)")
 //            }
 //            else if snapshot.exists() {
 //                print("Got data \(snapshot.value!)")
+//
+//                guard let value = snapshot.value else {return}
+//                do {
+//                    let userComment = try FirebaseDecoder().decode(UserComment.self, from: value)
+//                    print(userComment)
+//                } catch let err {
+//                    print (err)
+//                }
+//
 //            }
 //            else {
 //
 //                print("No data available")
 //            }
 //        }
-//    }
-//
+        
+        self.ref.child("places").child("autoid2").child("user_comments").getData { (error, snapshot) in
+            if let error = error {
+                print("Error getting data \(error)")
+            }
+            else if snapshot.exists() {
+                print("Got data \(snapshot.value!)")
+                print("type: \(type(of: snapshot.value!))")
+                
+                guard let value = snapshot.value else {return}
+                do {
+                    let userComments = try FirebaseDecoder().decode(Dictionary<String, UserComment>.self, from: value)
+                    print(userComments)
+                } catch let err {
+                    print (err)
+                }
+                
+            }
+            else {
+
+                print("No data available")
+            }
+        }
+        
+        
+    }
+
 
     /*
     // MARK: - Navigation

@@ -14,28 +14,32 @@ struct PlacesDataModel: Codable {
         case place
     }
 }
+struct UserComment:Codable {
+    let commentRating: Double
+    let commentImageAddress: String //comment_image_address
+    let userId: String //user_id
+    let comment: String
+    
+    enum CodingKeys: String, CodingKey {
+        case commentRating = "comment_rating"
+        case commentImageAddress = "comment_image_address"
+        case userId = "user_id"
+        case comment
+    }
+}
+
+struct UserComments: Codable {
+//    let userComments: [UserComment]
+    let userComments: [UserComment]
+    
+    enum CodingKeys: String, CodingKey {
+        case userComments = "user_comments"
+    }
+}
 
 struct PlaceDataModel: Codable {
-    struct Comments: Codable {
-        let userComment: [UserComment]
-        
-        enum CodingKeys: String, CodingKey {
-            case userComment = "user_comment"
-        }
-    }
-    struct UserComment:Codable {
-        let commentRating: Double
-        let commentImageAddress: String //comment_image_address
-        let userId: String //user_id
-        let comment: String
-        
-        enum CodingKeys: String, CodingKey {
-            case commentRating = "comment_rating"
-            case commentImageAddress = "comment_image_address"
-            case userId = "user_id"
-            case comment
-        }
-    }
+    
+    
 
     let addressKorean: String //address_korean
     let addressLatitude: Double //address_latitude
@@ -44,7 +48,7 @@ struct PlaceDataModel: Codable {
     let imageAddress: String //image_address
     let placeName: String //place_name
     let rating: Double
-    let userComments: [Comments]
+    let userComments: Dictionary<String, UserComment>
 
     enum CodingKeys: String, CodingKey {
         case addressKorean = "address_korean"
