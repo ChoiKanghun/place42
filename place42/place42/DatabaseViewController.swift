@@ -19,29 +19,6 @@ class DatabaseViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
 
         ref = Database.database().reference()
-
-//        // getting one comment
-//        self.ref.child("places").child("autoid2").child("user_comments").child("test").getData { (error, snapshot) in
-//            if let error = error {
-//                print("Error getting data \(error)")
-//            }
-//            else if snapshot.exists() {
-//                print("Got data \(snapshot.value!)")
-//
-//                guard let value = snapshot.value else {return}
-//                do {
-//                    let userComment = try FirebaseDecoder().decode(UserComment.self, from: value)
-//                    print(userComment)
-//                } catch let err {
-//                    print (err)
-//                }
-//
-//            }
-//            else {
-//
-//                print("No data available")
-//            }
-//        }
         
         self.ref.child("places").child("autoid2").child("user_comments").getData { (error, snapshot) in
             if let error = error {
@@ -70,13 +47,4 @@ class DatabaseViewController: UIViewController, UICollectionViewDelegate {
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
