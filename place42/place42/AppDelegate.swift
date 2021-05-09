@@ -11,6 +11,7 @@ import GoogleMaps
 import GooglePlaces
 import Firebase
 import GoogleSignIn
+import Messages
 
 let googleApiKey = "AIzaSyBJvaTwMGsIVqMkZ7kyN6fcvDkdBHyz9ug"
 
@@ -69,9 +70,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         Thread.sleep(forTimeInterval: 1.0)
         
         // 앱 푸쉬 알림
-        UNUserNotificationCenter.current().delegate = self
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().delegate = self
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: {_, _ in })
+            
+        } else {
+            let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
         
         application.registerForRemoteNotifications()
+        
+    
+        // 앱 푸시 알림 끝
         
         return true
     }
@@ -84,6 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let tokenParts = deviceToken.map{data in String(format:"%02.2hhx", data)}
         let token = tokenParts.joined()
         print("Device token: \(token)")
+        
     }
     
 
@@ -115,3 +129,5 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         completionHandler([.alert, .badge, .sound])
     }
 }
+
+

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7A09A64725EE6427004EE99D /* DatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A09A64625EE6427004EE99D /* DatabaseViewController.swift */; };
-		7A09A64925EF69D3004EE99D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A09A64825EF69D3004EE99D /* GoogleService-Info.plist */; };
 		7A09A64B25EF8734004EE99D /* AlbumImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A09A64A25EF8734004EE99D /* AlbumImageCollectionViewCell.swift */; };
 		7A09A64D25EF89C8004EE99D /* ImagePickingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A09A64C25EF89C8004EE99D /* ImagePickingViewController.swift */; };
 		7A320E9C2600A53200DE1F90 /* CommentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A320E9B2600A53200DE1F90 /* CommentDetailViewController.swift */; };
@@ -37,6 +36,7 @@
 		7A9BC3F225FEFACE008D0148 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC3F125FEFACE008D0148 /* ScreenSize.swift */; };
 		7A9BC3F525FEFC98008D0148 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC3F425FEFC98008D0148 /* Utils.swift */; };
 		7A9BC3FF25FFA1CC008D0148 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC3FE25FFA1CB008D0148 /* CustomUISlider.swift */; };
+		7AA240492647EF0500A22E3B /* AppPushAlarmServiceWithFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA240482647EF0500A22E3B /* AppPushAlarmServiceWithFirebase.swift */; };
 		7AB910B925E9143D00D2AE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910B825E9143D00D2AE86 /* AppDelegate.swift */; };
 		7AB910BB25E9143D00D2AE86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */; };
 		7AB910BD25E9143D00D2AE86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910BC25E9143D00D2AE86 /* ViewController.swift */; };
@@ -47,6 +47,7 @@
 		7AD6478A25EE1092009682DF /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6478925EE1092009682DF /* MusicPlayerViewController.swift */; };
 		7AD6478C25EE2B06009682DF /* all-night-long.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6478B25EE2B06009682DF /* all-night-long.mp3 */; };
 		7AD647AE25EE4CFD009682DF /* GooglePlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD647AD25EE4CFD009682DF /* GooglePlacesViewController.swift */; };
+		7AE8E183263BAD6100C82A62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AE8E182263BAD6100C82A62 /* GoogleService-Info.plist */; };
 		E981E71BB184CFC601C46259 /* Pods_place42.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052EABF86406AE5C40A0F0F3 /* Pods_place42.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +55,6 @@
 		052EABF86406AE5C40A0F0F3 /* Pods_place42.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_place42.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39AD3AF2F900CDE7E877ABC5 /* Pods-place42.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-place42.debug.xcconfig"; path = "Target Support Files/Pods-place42/Pods-place42.debug.xcconfig"; sourceTree = "<group>"; };
 		7A09A64625EE6427004EE99D /* DatabaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseViewController.swift; sourceTree = "<group>"; };
-		7A09A64825EF69D3004EE99D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7A09A64A25EF8734004EE99D /* AlbumImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A09A64C25EF89C8004EE99D /* ImagePickingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickingViewController.swift; sourceTree = "<group>"; };
 		7A320E9B2600A53200DE1F90 /* CommentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDetailViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +84,7 @@
 		7A9BC3F125FEFACE008D0148 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		7A9BC3F425FEFC98008D0148 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7A9BC3FE25FFA1CB008D0148 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
+		7AA240482647EF0500A22E3B /* AppPushAlarmServiceWithFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPushAlarmServiceWithFirebase.swift; sourceTree = "<group>"; };
 		7AB910B525E9143D00D2AE86 /* place42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = place42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB910B825E9143D00D2AE86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		7AD6478925EE1092009682DF /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
 		7AD6478B25EE2B06009682DF /* all-night-long.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "all-night-long.mp3"; sourceTree = "<group>"; };
 		7AD647AD25EE4CFD009682DF /* GooglePlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesViewController.swift; sourceTree = "<group>"; };
+		7AE8E182263BAD6100C82A62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9F2CF72CECA7F0FFDC61903F /* Pods-place42.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-place42.release.xcconfig"; path = "Target Support Files/Pods-place42/Pods-place42.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,16 +199,17 @@
 				7A9BC32525F0C71F008D0148 /* GettingAPIsViewController.swift */,
 				7A9BC32825F0C776008D0148 /* GettingApiTableViewCell.swift */,
 				7AD6478925EE1092009682DF /* MusicPlayerViewController.swift */,
-				7A09A64825EF69D3004EE99D /* GoogleService-Info.plist */,
 				7AD6478B25EE2B06009682DF /* all-night-long.mp3 */,
 				7AB910C325E9143D00D2AE86 /* LaunchScreen.storyboard */,
 				7AB910C125E9143D00D2AE86 /* Assets.xcassets */,
+				7AE8E182263BAD6100C82A62 /* GoogleService-Info.plist */,
 				7AB910C625E9143D00D2AE86 /* Info.plist */,
 				7A9BC33F25F5B8CD008D0148 /* getPlaceInfoViewController.swift */,
 				7A9BC34525F5B9C6008D0148 /* PlacesDataModel.swift */,
 				7A9BC34225F5B91A008D0148 /* getPlaceInfoTableViewCell.swift */,
 				7A9BC36725FC7F10008D0148 /* oAuthTestViewController.swift */,
 				7A9BC38A25FC9E29008D0148 /* CheckOauthLoginViewController.swift */,
+				7AA240482647EF0500A22E3B /* AppPushAlarmServiceWithFirebase.swift */,
 			);
 			path = place42;
 			sourceTree = "<group>";
@@ -282,10 +285,10 @@
 			files = (
 				7AB910C525E9143D00D2AE86 /* LaunchScreen.storyboard in Resources */,
 				7AD6478C25EE2B06009682DF /* all-night-long.mp3 in Resources */,
-				7A09A64925EF69D3004EE99D /* GoogleService-Info.plist in Resources */,
 				7A320EA82600CC5C00DE1F90 /* 42PlacesLauchScreenImage.png in Resources */,
 				7AB910C225E9143D00D2AE86 /* Assets.xcassets in Resources */,
 				7AB910C025E9143D00D2AE86 /* Main.storyboard in Resources */,
+				7AE8E183263BAD6100C82A62 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +362,7 @@
 				7A09A64B25EF8734004EE99D /* AlbumImageCollectionViewCell.swift in Sources */,
 				7A320ED22609BA8E00DE1F90 /* AppPushCollectionViewCell.swift in Sources */,
 				7A9BC38725FC9D7B008D0148 /* UserOAuthInfo.swift in Sources */,
+				7AA240492647EF0500A22E3B /* AppPushAlarmServiceWithFirebase.swift in Sources */,
 				7AD647AE25EE4CFD009682DF /* GooglePlacesViewController.swift in Sources */,
 				7A320ECC2608857600DE1F90 /* AppPushNotificationViewController.swift in Sources */,
 				7A09A64D25EF89C8004EE99D /* ImagePickingViewController.swift in Sources */,
