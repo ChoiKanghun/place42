@@ -11,7 +11,7 @@ import GoogleMaps
 import GooglePlaces
 import Firebase
 import GoogleSignIn
-import Messages
+import FirebaseMessaging
 
 let googleApiKey = "AIzaSyBJvaTwMGsIVqMkZ7kyN6fcvDkdBHyz9ug"
 
@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GMSPlacesClient.provideAPIKey(googleApiKey)
         
         // 구글 로그인 관련.
-        GIDSignIn.sharedInstance()?.clientID = "944731256906-uer210vtvfg4r8nrsdjbirg6cvk4iirs.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance()?.clientID = GooglePrivateInfo.shared.clientId
         GIDSignIn.sharedInstance()?.delegate = self
         
         // Firebase 초기화.
@@ -83,21 +83,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         application.registerForRemoteNotifications()
         
+        Messaging.messaging().delegate = self
     
         // 앱 푸시 알림 끝
         
         return true
     }
+    
     // 앱 푸시 등록 실패시
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register for notifications: \(error.localizedDescription)")
     }
     // 앱 푸시 등록 성공 시
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        /*클라우드 푸시 등록 성공 시*/
+        
+        /* 로컬 푸시 등록 성공 시
         let tokenParts = deviceToken.map{data in String(format:"%02.2hhx", data)}
         let token = tokenParts.joined()
         print("Device token: \(token)")
-        
+         */
     }
     
 
@@ -130,4 +136,23 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
 }
 
-
+// MARK:- 메시징 FIREBASE
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        
+        Messaging.messaging().token {
+            (token, error) in
+            if let error = error {
+                print("Error fetching FCM registration token: \(error)")
+            } else if let token = token {
+                print("FCM registration token: \(token)")
+            
+            }
+        }
+        
+        print("Firebase registration token: \(String(describing: fcmToken))")
+        
+        let dataDict: [String: String] = ["token": fcmToken ?? ""]
+        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+    }
+}

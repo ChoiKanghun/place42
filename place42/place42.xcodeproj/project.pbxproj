@@ -37,6 +37,7 @@
 		7A9BC3F525FEFC98008D0148 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC3F425FEFC98008D0148 /* Utils.swift */; };
 		7A9BC3FF25FFA1CC008D0148 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC3FE25FFA1CB008D0148 /* CustomUISlider.swift */; };
 		7AA240492647EF0500A22E3B /* AppPushAlarmServiceWithFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA240482647EF0500A22E3B /* AppPushAlarmServiceWithFirebase.swift */; };
+		7AA2404B2648CEB000A22E3B /* GooglePrivateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA2404A2648CEB000A22E3B /* GooglePrivateInfo.swift */; };
 		7AB910B925E9143D00D2AE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910B825E9143D00D2AE86 /* AppDelegate.swift */; };
 		7AB910BB25E9143D00D2AE86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */; };
 		7AB910BD25E9143D00D2AE86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910BC25E9143D00D2AE86 /* ViewController.swift */; };
@@ -85,6 +86,7 @@
 		7A9BC3F425FEFC98008D0148 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7A9BC3FE25FFA1CB008D0148 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
 		7AA240482647EF0500A22E3B /* AppPushAlarmServiceWithFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPushAlarmServiceWithFirebase.swift; sourceTree = "<group>"; };
+		7AA2404A2648CEB000A22E3B /* GooglePrivateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePrivateInfo.swift; sourceTree = "<group>"; };
 		7AB910B525E9143D00D2AE86 /* place42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = place42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB910B825E9143D00D2AE86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AB910BA25E9143D00D2AE86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				7A9BC36725FC7F10008D0148 /* oAuthTestViewController.swift */,
 				7A9BC38A25FC9E29008D0148 /* CheckOauthLoginViewController.swift */,
 				7AA240482647EF0500A22E3B /* AppPushAlarmServiceWithFirebase.swift */,
+				7AA2404A2648CEB000A22E3B /* GooglePrivateInfo.swift */,
 			);
 			path = place42;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				7A09A64D25EF89C8004EE99D /* ImagePickingViewController.swift in Sources */,
 				7A9BC33125F1F5E4008D0148 /* PlaceTableViewCell.swift in Sources */,
 				7A9BC32925F0C776008D0148 /* GettingApiTableViewCell.swift in Sources */,
+				7AA2404B2648CEB000A22E3B /* GooglePrivateInfo.swift in Sources */,
 				7A816F9F25EFB68A00C58852 /* GetImageViewController.swift in Sources */,
 				7A9BC3F525FEFC98008D0148 /* Utils.swift in Sources */,
 				7A9BC38E25FD2855008D0148 /* OAuthLoginViewController.swift in Sources */,
