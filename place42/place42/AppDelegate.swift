@@ -12,11 +12,15 @@ import GooglePlaces
 import Firebase
 import GoogleSignIn
 import FirebaseMessaging
+import BackgroundTasks
 
 let googleApiKey = "AIzaSyBJvaTwMGsIVqMkZ7kyN6fcvDkdBHyz9ug"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    
+    var fetchCount: Int = 0
+    
     // 구글 로그인 관련.
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         // sign함수 내 if let error ~ let credential 변수 까지는
@@ -87,8 +91,114 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
         // 앱 푸시 알림 끝
         
+        // 백그라운드 fetch 설정
+        
+        
+//        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.kchoi.place42.test", using: nil) { (task) in
+//
+//            self.scheduleAppRefresh()
+//
+//            let queue = OperationQueue()
+//            queue.maxConcurrentOperationCount = 1
+//            queue.addOperation {
+//                self.fetchCount += 1
+//                print(self.fetchCount)
+//            }
+//            task.setTaskCompleted(success: true)
+//
+//        }
+        registerBackgroundTasks()
         return true
     }
+    
+    
+// MARK:- background tasks
+    func registerBackgroundTasks() {
+        if #available(iOS 13.0 , *) {
+            //Register the BGAppRereshTask
+            print("Entered to registering tasks function")
+            
+            BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.kchoi.place42.refresh", using: nil) { task in
+                self.handleAppRefresh(task: task as! BGAppRefreshTask)
+            }
+            
+            BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.kchoi.place42.dataprocessing", using: nil) { task in
+                self.handleDataProcessing(task: task as! BGProcessingTask)
+            }
+        }
+    }
+    
+    func scheduleAppRefresh() {
+        print("Entered to scheduleAppRefresh")
+        let request = BGAppRefreshTaskRequest(identifier: "com.kchoi.place42.refresh")
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 1 * 60)
+        
+        do {
+            try BGTaskScheduler.shared.submit(request)
+        } catch {
+            print("Couldn't schedule app refresh : \(error)")
+        }
+    }
+    
+    func scheduleDataProcessing() {
+        print("Entered to dataprocessing")
+
+        let request = BGProcessingTaskRequest(identifier: "com.kchoi.place42.dataprocessing")
+        request.requiresNetworkConnectivity = true
+        // request.requiresExternalPower = true
+        
+        do {
+            try BGTaskScheduler.shared.submit(request)
+        } catch {
+            print("couldn't schedule database cleaning : \(error)")
+        }
+    }
+    
+    func handleAppRefresh(task: BGAppRefreshTask) {
+        scheduleAppRefresh()
+        
+        var completionStatus = true
+        print("handler App Refresh called")
+        
+        task.expirationHandler = {
+            print("handler app refresh done")
+        }
+        task.setTaskCompleted(success: completionStatus)
+    }
+    
+    func handleDataProcessing(task: BGProcessingTask) {
+        var completionStatus = true
+        
+        print("handler dataprocessing called")
+
+        task.expirationHandler = {
+            print("handleDataProcessing done")
+        }
+        
+        task.setTaskCompleted(success: completionStatus)
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        print("Application Did Enter Background")
+        scheduleAppRefresh()
+        scheduleDataProcessing()
+    }
+//    func applicationDidEnterBackground(_ application: UIApplication) {
+//        scheduleAppRefresh()
+//    }
+//
+//    func scheduleAppRefresh() {
+//        let request = BGAppRefreshTaskRequest(identifier: "com.kchoi.place42.test")
+//
+//        request.earliestBeginDate = Date(timeIntervalSinceNow: 15 * 60)
+//
+//        do {
+//            try BGTaskScheduler.shared.submit(request)
+//        } catch {
+//            print("Couldn't schedule app refresh: \(error)")
+//        }
+//    }
+//
     
     // 앱 푸시 등록 실패시
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -122,7 +232,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url)
     }
+   
     
+
 
     
 }

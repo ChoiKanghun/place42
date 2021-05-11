@@ -10,7 +10,5 @@ import Foundation
 
 class GooglePrivateInfo {
     static let shared = GooglePrivateInfo()
-    
     let clientId = "944731256906-uer210vtvfg4r8nrsdjbirg6cvk4iirs.apps.googleusercontent.com"
-    
 }
