@@ -36,7 +36,7 @@
 		7A9BC3F225FEFACE008D0148 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC3F125FEFACE008D0148 /* ScreenSize.swift */; };
 		7A9BC3F525FEFC98008D0148 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC3F425FEFC98008D0148 /* Utils.swift */; };
 		7A9BC3FF25FFA1CC008D0148 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BC3FE25FFA1CB008D0148 /* CustomUISlider.swift */; };
-		7AA240492647EF0500A22E3B /* AppPushAlarmServiceWithFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA240482647EF0500A22E3B /* AppPushAlarmServiceWithFirebase.swift */; };
+		7A9F0206264B82C6001E4B66 /* CarrotMarketAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9F0205264B82C6001E4B66 /* CarrotMarketAlarmViewController.swift */; };
 		7AA2404D2648D34900A22E3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AA2404C2648D34900A22E3B /* GoogleService-Info.plist */; };
 		7AA2404F2648D36700A22E3B /* GooglePrivateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA2404E2648D36700A22E3B /* GooglePrivateInfo.swift */; };
 		7AB910B925E9143D00D2AE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB910B825E9143D00D2AE86 /* AppDelegate.swift */; };
@@ -85,7 +85,7 @@
 		7A9BC3F125FEFACE008D0148 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		7A9BC3F425FEFC98008D0148 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7A9BC3FE25FFA1CB008D0148 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
-		7AA240482647EF0500A22E3B /* AppPushAlarmServiceWithFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPushAlarmServiceWithFirebase.swift; sourceTree = "<group>"; };
+		7A9F0205264B82C6001E4B66 /* CarrotMarketAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrotMarketAlarmViewController.swift; sourceTree = "<group>"; };
 		7AA2404C2648D34900A22E3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7AA2404E2648D36700A22E3B /* GooglePrivateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePrivateInfo.swift; sourceTree = "<group>"; };
 		7AB910B525E9143D00D2AE86 /* place42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = place42.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,8 +211,8 @@
 				7A9BC34225F5B91A008D0148 /* getPlaceInfoTableViewCell.swift */,
 				7A9BC36725FC7F10008D0148 /* oAuthTestViewController.swift */,
 				7A9BC38A25FC9E29008D0148 /* CheckOauthLoginViewController.swift */,
-				7AA240482647EF0500A22E3B /* AppPushAlarmServiceWithFirebase.swift */,
 				7AA2404E2648D36700A22E3B /* GooglePrivateInfo.swift */,
+				7A9F0205264B82C6001E4B66 /* CarrotMarketAlarmViewController.swift */,
 			);
 			path = place42;
 			sourceTree = "<group>";
@@ -366,7 +366,6 @@
 				7A320ED22609BA8E00DE1F90 /* AppPushCollectionViewCell.swift in Sources */,
 				7AA2404F2648D36700A22E3B /* GooglePrivateInfo.swift in Sources */,
 				7A9BC38725FC9D7B008D0148 /* UserOAuthInfo.swift in Sources */,
-				7AA240492647EF0500A22E3B /* AppPushAlarmServiceWithFirebase.swift in Sources */,
 				7AD647AE25EE4CFD009682DF /* GooglePlacesViewController.swift in Sources */,
 				7A320ECC2608857600DE1F90 /* AppPushNotificationViewController.swift in Sources */,
 				7A09A64D25EF89C8004EE99D /* ImagePickingViewController.swift in Sources */,
@@ -377,6 +376,7 @@
 				7A9BC38E25FD2855008D0148 /* OAuthLoginViewController.swift in Sources */,
 				7A9BC33D25F35C54008D0148 /* CommentTableViewCell.swift in Sources */,
 				7A320ED72609BC5F00DE1F90 /* TestSingleton.swift in Sources */,
+				7A9F0206264B82C6001E4B66 /* CarrotMarketAlarmViewController.swift in Sources */,
 				7AB910BD25E9143D00D2AE86 /* ViewController.swift in Sources */,
 				7AB910B925E9143D00D2AE86 /* AppDelegate.swift in Sources */,
 				7A9BC32D25F1F587008D0148 /* PlacesViewController.swift in Sources */,
